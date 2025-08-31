@@ -1,1 +1,16 @@
-
+{
+  "Perguntas"[
+    {
+      "Enunciado":"Qual a frase mais popular entre os programadores de computadores?",
+      "Alternativas":[
+        "a)": "Meu Primeiro Código",
+        "b)": "Hello Word",
+        "c)": "Seja Bem Vindo",
+        "d)": "Hello Code"
+      ],
+      "Resposta Correta": "b) Hello Word",
+      "Dica": "Você está entrando no mundo da programação",
+      "Nível de Dificuldade": "Moleza"
+    }
+  ]
+}
