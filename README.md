@@ -1,6 +1,6 @@
-# Quiz em C (console) + JSON
+# QUIZ
 
-Jogo de perguntas e respostas em **C** com interface 100% textual, construído para a disciplina de **Algoritmo** **e** **Programação** **Estruturada** como trabalho final.
+Jogo de perguntas e respostas em **C** com interface 100% textual, construído para a disciplina de **Algoritmo e Programação Estruturada** como trabalho final.
 
 ## Funcionalidades
 
