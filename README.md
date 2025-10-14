@@ -91,6 +91,3 @@ print("Olá, Mundo!")
 ---
 
 Linha horizontal
-
-
-

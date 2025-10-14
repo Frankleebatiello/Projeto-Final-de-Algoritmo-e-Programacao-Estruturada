@@ -1,376 +1,122 @@
-{
-    "Perguntas": [
-        {
-            "enunciado": "Qual a frase mais popular entre os programadores de computadores?",
-            "alternativas": [
-                {
-                    "alternativa": "a)",
-                    "texto": "Meu Primeiro Código",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "b)",
-                    "Texto": "Hello World",
-                    "correta": true
-                },
-                {
-                    "alternativa": "c)",
-                    "texto": "Seja Bem Vindo",
-                    "correta": false
-                },
-                {
-                    "alternativa": "d)",
-                    "texto": "Hello Code",
-                    "correta": false
-                }
-            ],
-            "dica": "Você está entrando no mundo da programação.",
-            "dificuldade": "Moleza"
-        },
-        {
-            "Enunciado": "Qual é a extenção mais usada para arquivos de código-fonte em C?",
-            "Alternativas": [
-                {
-                    "Alternativa": "a)",
-                    "Texto": ".java",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "b)",
-                    "Texto": ".c",
-                    "correta": true
-                },
-                {
-                    "Alternativa": "c)",
-                    "Texto": ".html",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "d)",
-                    "Texto": "css",
-                    "correta": false
-                }
-            ],
-            "Dica": "Está no nome.",
-            "Dificuldade": "Moleza"
-        },
-        {
-            "Enunciado": "Qual comando exibe mensagens no terminal em C?",
-            "Alternativas": [
-                {
-                    "Alternativa": "a)",
-                    "Texto": "printf()",
-                    "correta": true
-                },
-                {
-                    "Alternativa": "b)",
-                    "Texto": "print()",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "c)",
-                    "Texto": "echo",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "d)",
-                    "Texto": "cout",
-                    "correta": false
-                }
-            ],
-            "Dica": "Tem 'f' de format.",
-            "Dificuldade": "Moleza"
-        },
-        {
-            "Enunciado": "Qual biblioteca é usada para funções de entrada e saída (I/O) em C?",
-            "Alternativas": [
-                {
-                    "Alternativa": "a)",
-                    "Texto": "#include <stdlib.h>()",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "b)",
-                    "Texto": "#include <stdio.h>()",
-                    "correta": true
-                },
-                {
-                    "Alternativa": "c)",
-                    "Texto": "#include <string.h>",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "d)",
-                    "Texto": "#include <math.h>",
-                    "correta": false
-                }
-            ],
-            "Dica": "Standard Input Output, aquela presente na maioria do códigos.",
-            "Dificuldade": "Moleza"
-        },
-        {
-            "Enunciado": "Como declaramos uma variável inteira em C?",
-            "Alternativas": [
-                {
-                    "Alternativa": "a)",
-                    "Texto": "int x",
-                    "correta": true
-                },
-                {
-                    "Alternativa": "b)",
-                    "Texto": "integer x",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "c)",
-                    "Texto": "num x",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "d)",
-                    "Texto": "float x",
-                    "correta": false
-                }
-            ],
-            "Dica": "Se é inteiro, pense inteiro.",
-            "Dificuldade": "Moleza"
-        },
-        {
-            "Enunciado": "Qual símbolo é usado para terminar instruções em C?",
-            "Alternativas": [
-                {
-                    "Alternativa": "a)",
-                    "Texto": ".",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "b)",
-                    "Texto": ";",
-                    "correta": true
-                },
-                {
-                    "Alternativa": "c)",
-                    "Texto": ":",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "d)",
-                    "Texto": ",",
-                    "correta": false
-                }
-            ],
-            "Dica": "Sempre finalize as linhas.",
-            "Dificuldade": "Moleza"
-        },
-        {
-            "Enunciado": "Qual tipo de dado armazena caracteres em C?",
-            "Alternativas": [
-                {
-                    "Alternativa": "a)",
-                    "Texto": "char",
-                    "correta": true
-                },
-                {
-                    "Alternativa": "b)",
-                    "Texto": "int",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "c)",
-                    "Texto": "float",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "d)",
-                    "Texto": "string",
-                    "correta": false
-                }
-            ],
-            "Dica": "É sempre 1 byte.",
-            "Dificuldade": "Moleza"
-        },
-        {
-            "Enunciado": "Como escrevemos um comentário de linha única em C?",
-            "Alternativas": [
-                {
-                    "Alternativa": "a)",
-                    "Texto": "/* comentário */",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "b)",
-                    "Texto": "// comentário",
-                    "correta": true
-                },
-                {
-                    "Alternativa": "c)",
-                    "Texto": "# comentário",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "d)",
-                    "Texto": "-- comentário",
-                    "correta": false
-                }
-            ],
-            "Dica": "Pense parecido com HTML.",
-            "Dificuldade": "Moleza"
-        },
-        {
-            "Enunciado": "Qual função é usada para ler dados comuns do usuário no terminal em C?",
-            "Alternativas": [
-                {
-                    "Alternativa": "a)",
-                    "Texto": "scanf()",
-                    "correta": true
-                },
-                {
-                    "Alternativa": "b)",
-                    "Texto": "input()",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "c)",
-                    "Texto": "cin",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "d)",
-                    "Texto": "get()",
-                    "correta": false
-                }
-            ],
-            "Dica": "Pense em 'scanear'.",
-            "Dificuldade": "Moleza"
-        },
-        {
-            "Enunciado": "Como inicializamos uma variável inteira chamada idade com valor 18?",
-            "Alternativas": [
-                {
-                    "Alternativa": "a)",
-                    "Texto": "int idade = 18;",
-                    "correta": true
-                },
-                {
-                    "Alternativa": "b)",
-                    "Texto": "integer idade = 18;",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "c)",
-                    "Texto": "num idade = 18;",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "d)",
-                    "Texto": "float idade = 18;",
-                    "correta": false
-                }
-            ],
-            "Dica": "Tipo + nome + valor.",
-            "Dificuldade": "Moleza"
-        },
-        {
-            "Enunciado": "Qual especificador usamos para imprimir um número inteiro em C?",
-            "Alternativas": [
-                {
-                    "Alternativa": "a)",
-                    "Texto": "%f",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "b)",
-                    "Texto": "%d",
-                    "correta": true
-                },
-                {
-                    "Alternativa": "c)",
-                    "Texto": "%s",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "d)",
-                    "Texto": "%c",
-                    "correta": false
-                }
-            ],
-            "Dica": "Pense na palavra decimal.",
-            "Dificuldade": "Fácil"
-        },
-        {
-            "Enunciado": "Qual operador é usado para comparar igualdade em C?",
-            "Alternativas": [
-                {
-                    "Alternativa": "a)",
-                    "Texto": "=",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "b)",
-                    "Texto": "==",
-                    "correta": true
-                },
-                {
-                    "Alternativa": "c)",
-                    "Texto": "!=",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "d)",
-                    "Texto": "===",
-                    "correta": false
-                }
-            ],
-            "Dica": "Um é atribuição, o outro é comparação.",
-            "Dificuldade": "Fácil"
-        },
-        {
-            "Enunciado": "Qual comando encerra um loop imediatamente em C?",
-            "Alternativas": [
-                {
-                    "Alternativa": "a)",
-                    "Texto": "continue",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "b)",
-                    "Texto": "break",
-                    "correta": true
-                },
-                {
-                    "Alternativa": "c)",
-                    "Texto": "exit",
-                    "correta": false
-                },
-                {
-                    "Alternativa": "d)",
-                    "Texto": "stop",
-                    "correta": false
-                }
-            ],
-            "Dica": "Pense no sentido inglês da função.",
-            "Dificuldade": "Fácil"
-        },
-        {
-
-        },
-        {
-
-        },
-        {
-
-        },
-        {
-
-        },
-        {
-
-        },
-        {
-
-        },
-        {
-
-        }
-    ]
-}
+[
+  {
+    "Enunciado": "Qual é a capital do Brasil?",
+    "Alternativas": [
+      { "Texto": "São Paulo", "correta": false },
+      { "Texto": "Rio de Janeiro", "correta": false },
+      { "Texto": "Brasília", "correta": true }
+    ],
+    "Dica": "Foi inaugurada em 1960",
+    "Dificuldade": 1
+  },
+  {
+    "Enunciado": "Quanto é 2 + 2?",
+    "Alternativas": [
+      { "Texto": "3", "correta": false },
+      { "Texto": "4", "correta": true },
+      { "Texto": "5", "correta": false }
+    ],
+    "Dica": "É um número par",
+    "Dificuldade": 1
+  },
+  {
+    "Enunciado": "Qual é o maior planeta do sistema solar?",
+    "Alternativas": [
+      { "Texto": "Terra", "correta": false },
+      { "Texto": "Júpiter", "correta": true },
+      { "Texto": "Saturno", "correta": false }
+    ],
+    "Dica": "É conhecido por suas grandes manchas",
+    "Dificuldade": 1
+  },
+  {
+    "Enunciado": "Em que ano o homem pisou na Lua pela primeira vez?",
+    "Alternativas": [
+      { "Texto": "1965", "correta": false },
+      { "Texto": "1969", "correta": true },
+      { "Texto": "1972", "correta": false }
+    ],
+    "Dica": "Foi durante a missão Apollo 11",
+    "Dificuldade": 2
+  },
+  {
+    "Enunciado": "Qual é a fórmula química da água?",
+    "Alternativas": [
+      { "Texto": "H2O", "correta": true },
+      { "Texto": "CO2", "correta": false },
+      { "Texto": "O2", "correta": false }
+    ],
+    "Dica": "Contém hidrogênio e oxigênio",
+    "Dificuldade": 2
+  },
+  {
+    "Enunciado": "Quem pintou a Mona Lisa?",
+    "Alternativas": [
+      { "Texto": "Michelangelo", "correta": false },
+      { "Texto": "Leonardo da Vinci", "correta": true },
+      { "Texto": "Rafael", "correta": false }
+    ],
+    "Dica": "Também inventou várias máquinas",
+    "Dificuldade": 2
+  },
+  {
+    "Enunciado": "Qual é a velocidade da luz no vácuo?",
+    "Alternativas": [
+      { "Texto": "300.000 km/s", "correta": true },
+      { "Texto": "150.000 km/s", "correta": false },
+      { "Texto": "450.000 km/s", "correta": false }
+    ],
+    "Dica": "É aproximadamente 3 x 10^8 m/s",
+    "Dificuldade": 3
+  },
+  {
+    "Enunciado": "Qual é o elemento químico mais abundante no universo?",
+    "Alternativas": [
+      { "Texto": "Oxigênio", "correta": false },
+      { "Texto": "Hidrogênio", "correta": true },
+      { "Texto": "Carbono", "correta": false }
+    ],
+    "Dica": "É o elemento mais simples da tabela periódica",
+    "Dificuldade": 3
+  },
+  {
+    "Enunciado": "Quantos ossos tem o corpo humano adulto?",
+    "Alternativas": [
+      { "Texto": "206", "correta": true },
+      { "Texto": "198", "correta": false },
+      { "Texto": "215", "correta": false }
+    ],
+    "Dica": "Bebês nascem com mais ossos que se fundem",
+    "Dificuldade": 3
+  },
+  {
+    "Enunciado": "Qual é a constante de Planck (aproximadamente)?",
+    "Alternativas": [
+      { "Texto": "6.626 x 10^-34 J·s", "correta": true },
+      { "Texto": "9.81 m/s²", "correta": false },
+      { "Texto": "3.14159", "correta": false }
+    ],
+    "Dica": "É fundamental na mecânica quântica",
+    "Dificuldade": 4
+  },
+  {
+    "Enunciado": "Quem desenvolveu a teoria da relatividade geral?",
+    "Alternativas": [
+      { "Texto": "Isaac Newton", "correta": false },
+      { "Texto": "Albert Einstein", "correta": true },
+      { "Texto": "Niels Bohr", "correta": false }
+    ],
+    "Dica": "Também é famoso por E=mc²",
+    "Dificuldade": 4
+  },
+  {
+    "Enunciado": "Qual é a distância aproximada da Terra ao Sol?",
+    "Alternativas": [
+      { "Texto": "150 milhões de km", "correta": true },
+      { "Texto": "100 milhões de km", "correta": false },
+      { "Texto": "200 milhões de km", "correta": false }
+    ],
+    "Dica": "É chamada de Unidade Astronômica (UA)",
+    "Dificuldade": 4
+  }
+]
