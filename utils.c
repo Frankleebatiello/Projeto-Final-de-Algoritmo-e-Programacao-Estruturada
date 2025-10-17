@@ -1,17 +1,21 @@
-#include <stdlib.h>
-#include <ctype.h>
 #include "utils.h"
 
-int sorteio(int max) {
-    if (max <= 0) return 0;
-    return rand() % max;
+void limparBuffer()
+{
+    int l;
+    while ((l = getchar()) != '\n' && l != EOF);
 }
 
-int letraParaIndice(char letra) {
-    return tolower(letra) - 'a';
-}
+void centralizarTexto(const char* texto)
+{
+    int largura = 168;
 
-int letraValida(char letra) {
-    letra = tolower(letra);
-    return letra >= 'a' && letra <= 'z';
+    int comprimento = strlen(texto);
+    int espacos = (largura - comprimento) / 2;
+    for (int i = 0; i < espacos; i++)
+    {
+        printf(" ");
+    }
+    printf("%s\n", texto);
+    
 }

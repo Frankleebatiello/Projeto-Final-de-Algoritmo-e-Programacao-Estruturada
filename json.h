@@ -3,6 +3,10 @@
 
 #include "pergunta.h"
 
-Pergunta **carregarPerguntas(const char *nome_arquivo, int *total_perguntas);
+void removerAspasDuplas(char *textoOriginal);
+
+void removerVirgula(char *textoOriginal);
+
+int extrairPergunta();
 
 #endif
