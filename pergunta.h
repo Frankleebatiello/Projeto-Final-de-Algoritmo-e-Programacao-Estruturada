@@ -27,4 +27,6 @@ struct bP // Banco de Perguntas
     int totalPerguntas;
 };
 
+void inicializarEmbaralhar(int *vetor, int tamanho);
+
 #endif

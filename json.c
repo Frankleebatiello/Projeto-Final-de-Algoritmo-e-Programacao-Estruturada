@@ -2,6 +2,8 @@
 #include <stdlib.h>  // Biblioteca para funções utilitárias como malloc, free, atoi
 #include <string.h>  // Biblioteca para manipulação de strings
 #include <stdbool.h> // Biblioteca para usar o tipo booleano (true/false)
+#include <time.h>
+#include "pergunta.h"
 
 #define TAMANHO_MAXIMO_LINHA 1000 // Define o tamanho máximo de cada linha lida do arquivo
 #define MAXIMO_LINHAS 27
@@ -42,13 +44,32 @@ void removerVirgula(char *textoOriginal) // Função auxiliar para remover virgu
     *ponteiroDestino = '\0'; // Finaliza a nova string
 }
 
-int extrairPergunta()
+char limparInicio ()
+{
+    FILE *arquivoJson = fopen("perguntas.json", "r");
+
+    if (arquivoJson == NULL)
+    {
+        perror("Erro ao abrir o arquivo!");
+        return 1;
+    }
+    
+    for (int i = 0; i < 2; i++)
+    {
+        if (fgets(linhaLida, TAMANHO_MAXIMO_LINHA, arquivoJSON) != NULL);
+        else
+        {
+            perror("Arquivo vazio, ou sem primeira linha!");
+            fclose(arquivoJSON);
+            return 1;
+        }
+    }
+}
+
+void extrairPergunta(char *textoEnunciado[300], char *alternativa, char *textoDica[100], int *valorDificuldade)
 {
     // Declaração de variáveis para armazenar dados da pergunta
     char linhaLida[TAMANHO_MAXIMO_LINHA];
-    char textoEnunciado[500] = "";
-    char textoDica[500] = "";
-    int valorDificuldade = 0;
     int contadorLinhas = 0;
 
     // Variáveis para controle de leitura das alternativas
@@ -75,6 +96,8 @@ int extrairPergunta()
             return 1;
         }
     }
+
+    so
 
     while (contadorLinhas < MAXIMO_LINHAS && fgets(linhaLida, TAMANHO_MAXIMO_LINHA, arquivoJSON) != NULL)
     {
@@ -105,7 +128,6 @@ int extrairPergunta()
             {
                 posicaoValor += 2;
                 removerAspasDuplas(posicaoValor);
-
                 removerVirgula(posicaoValor);
                 posicaoValor[strcspn(posicaoValor, "\n")] = '\0';
                 strcpy(textoAlternativa, posicaoValor);
@@ -126,7 +148,7 @@ int extrairPergunta()
         }
 
         if (dentroAlternativa && strstr(linhaLida, "\"correta\"")) // Verifica se a linha indica se a alternativa é correta
-        {
+        {   
             respostaCorreta = strstr(linhaLida, "true") != NULL;
             printf("Alternativa %s %s %s\n", textoAlternativa, textoResposta, respostaCorreta ? "(Correta)" : "");
         }
@@ -166,5 +188,8 @@ int extrairPergunta()
 
 void moodularizarJson()
 {
-    int listaPerguntas[]
+    char a = 'enunciado';
+    char a[4][3][2] = '';
+    char c = 'dica';
+    char d = 'dificuldade';
 }
