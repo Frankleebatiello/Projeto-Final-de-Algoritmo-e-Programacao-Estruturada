@@ -5,8 +5,10 @@
 
 void linha(int largura)
 {
-    for (int i = 0; i < largura; i++)
-        printf("-");
+    for (int i = 0; i < largura; i++){
+    Sleep(10); 
+        printf("-"); 
+    }
     printf("\n");
 }
 
@@ -39,14 +41,20 @@ int main()
     int largura = 138;
     int vida = 1;
     int melhort = 0;
+    int questao = 1;
     char escolha;
     bool opcao = false;
+
+
 
     system("cls");
 
     linha(largura);
+    Sleep(250);
     center("Bem Vindo!!", largura);
+    Sleep(250);
     center("Dev Game Quest!!", largura);
+    Sleep(250);
     linha(largura);
 
     system("pause");
@@ -56,12 +64,19 @@ int main()
     system("cls");
 
     linha(largura);
+    Sleep(250);
     printf("Melhor Tentativa:%d \n",melhort);
+    Sleep(250);
     printf("Vidas:%d \n",vida);
+    Sleep(250);
     center("Dev Game Quest!!\n", largura);
+    Sleep(250);
     center("Começar [A]", largura);
+    Sleep(250);
     center("Loja [L]", largura);
+    Sleep(250);
     center("Sair [S]", largura);
+    Sleep(250);
     linha(largura);
     
     fflush(stdin);
@@ -83,6 +98,7 @@ if(escolha == 'A'||escolha == 'L'|| escolha == 'S'){
 opcao = true;
 }
 else{
+
     system("cls");
    printf("opção invalida!\n");
    system("pause");
@@ -97,7 +113,32 @@ else{
 switch (escolha)
 {
 case 'A':
-    puts("voce escolheu a");
+   do{
+
+    system("cls");
+
+    char vidas[10];
+    sprintf(vidas,"Vidas: %d", vida);
+
+    linha(largura);
+    center(vidas, largura);
+    printf("Questão %d\n", questao);
+
+    center("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",largura);
+
+    linha(largura);
+
+
+
+   }while (opcao == false);
+   
+
+
+    
+    
+    
+    
+    
     break;
 
 case 'S':
