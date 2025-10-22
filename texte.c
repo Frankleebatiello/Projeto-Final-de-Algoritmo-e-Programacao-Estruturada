@@ -1,17 +1,43 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stdbool.h>
-#include "pergunta.h"
+
+#define MAX_ALTERNATIVAS 4
+#define TAMANHO_MAX 600
+
+typedef struct // Alternativa
+{
+    char alternativa[MAX_ALTERNATIVAS];
+    char texto[TAMANHO_MAX];
+    bool correta;
+} alt;
+
+typedef struct // Pergunta
+{
+    char enunciado[TAMANHO_MAX];
+    alt alternativas[MAX_ALTERNATIVAS];
+    int numeroAlternativas;
+    char dica[TAMANHO_MAX];
+    int dificuldade;
+    bool jaUsada;
+} pgt;
+
+typedef struct // Banco de Perguntas
+{
+    pgt *questoes;
+    int quantidadePgt;
+    int capacidade;
+} bQ;
 
 char *encontrarProx(char *str, const char *padrao)
 {
     return strstr(str, padrao);
 }
 
-void etrairTextoEntreAspas(char *fonte, char *destino, int maxLen)
+void extrairTextoEntreAspas(char *fonte, char *destino, int maxLen)
 {
-    char *inicio = strstr(fonte, '"');
+    char *inicio = strstr(fonte, "\"");
     if (!inicio)
     {
         destino[0] = '\0';
@@ -71,7 +97,7 @@ void inicializarBanco(bQ *banco)
     }
 }
 
-void ExpadirBanco(bQ *banco)
+void expandirBanco(bQ *banco)
 {
     banco->capacidade *= 2;
     pgt *novoArray = (pgt *)realloc(banco->questoes, banco->capacidade * sizeof(pgt));
@@ -111,37 +137,31 @@ int parseJson(const char *conteudoJson, bQ *banco)
         // Procura próximo objeto de questão
         char *inicioPgt = encontrarProx(ptr, "{");
         if (!inicioPgt)
-        {
             break;
-        }
 
         char *fimPgt = encontrarProx(inicioPgt, "}");
         if (!fimPgt)
-        {
             break;
-        }
 
         // Verifica se chegamos ao fim do array
         char *arrayFim = strchr(ptr, ']');
         if (arrayFim && arrayFim < inicioPgt)
-        {
             break;
-        }
 
         if (banco->quantidadePgt >= banco->capacidade)
         {
-            expandirBanco(banco);
+            expandirBanco(banco); // Corrigido nome da função
         }
 
         pgt *q = &banco->questoes[banco->quantidadePgt];
         q->jaUsada = 0; // Inicializa como não usada
-        q->numeroAlternativas = 0;
+        q->numeroAlternativas = 0; // Corrigido typo: numoAlternativas
 
         // Extrai enunciado
         char *enunciado_pos = encontrarProx(inicioPgt, "\"enunciado\"");
         if (enunciado_pos && enunciado_pos < fimPgt)
         {
-            extrairTextoEntreApas(enunciado_pos + 11, q->enunciado, TAMANHO_MAX);
+            extrairTextoEntreAspas(enunciado_pos + 11, q->enunciado, TAMANHO_MAX); // Nome corrigido
         }
 
         // Extrai alternativas
@@ -156,55 +176,52 @@ int parseJson(const char *conteudoJson, bQ *banco)
             {
                 char *altInicio = encontrarProx(alt_ptr, "{");
                 if (!altInicio || altInicio > altArrayFim)
-                {
                     break;
-                }
 
                 char *altFim = encontrarProx(altInicio, "}");
                 if (!altFim || altFim > altArrayFim)
-                {
                     break;
-                }
 
-                alt *alternativa = &q->alternativas[q->numeroAlternativas];
+                alt *alternativa = &q->alternativas[q->numeroAlternativas]; // Tipo correto: alt
 
                 // Extrai letra da alternativa
                 char *altLetra = encontrarProx(altInicio, "\"alternativa\"");
                 if (altLetra && altLetra < altFim)
                 {
-                    extrairTextoEntreAspas(altLetra + 13, alt->alternativa, 4);
+                    extrairTextoEntreAspas(altLetra + 13, alternativa->alternativa, 4); // Nome corrigido
                 }
 
                 // Extrai texto da alternativa
                 char *altTexto = encontrarProx(altInicio, "\"texto\"");
                 if (altTexto && altTexto < altFim)
                 {
-                    extrairTextoEntreAspas(altTexto + 7, alt->texto, TAMANHO_MAX);
+                    extrairTextoEntreAspas(altTexto + 7, alternativa->texto, TAMANHO_MAX); // Nome corrigido
                 }
 
                 // Extrai se é correta
                 char *altCorreta = encontrarProx(altInicio, "\"correta\"");
                 if (altCorreta && altCorreta < altFim)
                 {
-                    alternativa->correta = extrairBooleano(altCorreta + 9);
+                    alternativa->correta = extrairBooleano(altCorreta + 9); // Nome corrigido
                 }
 
-                q->numeroAlternativas++;
+                q->numeroAlternativas++; // Nome consistente
                 alt_ptr = altFim + 1;
             }
         }
+        
         // Extrai dica
         char *dicaPgt = encontrarProx(inicioPgt, "\"dica\"");
         if (dicaPgt && dicaPgt < fimPgt)
         {
-            extrairTextoEntreAspas(dicaPgt + 6, q->dica, TAMANHO_MAX);
+            extrairTextoEntreAspas(dicaPgt + 6, q->dica, TAMANHO_MAX); // Nome corrigido
         }
 
         // Extrai dificuldade
-        char *dificuldadePgt = encontrarProx(inicioPgt, "\"dificuldade\"");
+        char *dificuldadePgt = encontrarProx(inicioPgt, "\"dificuldade\""); // Corrigido typo: difivuldadePgt
         if (dificuldadePgt && dificuldadePgt < fimPgt)
         {
-            q->dificuldade = extrairInteiro(dificuldadePgt + 13);
+            q->dificuldade = extrairInteiro(dificuldadePgt + 13); // Nome corrigido
         }
 
         banco->quantidadePgt++;
@@ -239,7 +256,7 @@ pgt *extrairPgtDificuldade(bQ *banco, int nivel)
 {
     if (nivel < 0 || nivel > 4)
     {
-        printf("Erro: Nivel invalido!\n");
+        printf("Erro: Nivel de dificuldade invalido! Use valores entre 0 e 4.\n");
         return NULL;
     }
 
@@ -283,10 +300,12 @@ void exibirQuestao(pgt *q)
                q->alternativas[i].texto,
                q->alternativas[i].correta ? "[CORRETA]" : "");
     }
+    
+    printf("\nDica: %s\n", q->dica);
     printf("===============\n\n");
 }
 
-void liberar_banco(bQ *banco)
+void liberarBanco(bQ *banco)
 {
     if (banco->questoes)
     {
@@ -296,3 +315,83 @@ void liberar_banco(bQ *banco)
     banco->quantidadePgt = 0;
     banco->capacidade = 0;
 }
+
+// Função auxiliar para ler arquivo JSON
+char *lerArquivo(const char *nomeArquivo)
+{
+    FILE *arquivo = fopen(nomeArquivo, "r");
+    if (!arquivo)
+    {
+        printf("Erro ao abrir arquivo: %s\n", nomeArquivo);
+        return NULL;
+    }
+
+    fseek(arquivo, 0, SEEK_END);
+    long tamanho = ftell(arquivo);
+    fseek(arquivo, 0, SEEK_SET);
+
+    char *conteudo = (char *)malloc(tamanho + 1);
+    if (!conteudo)
+    {
+        fclose(arquivo);
+        return NULL;
+    }
+
+    fread(conteudo, 1, tamanho, arquivo);
+    conteudo[tamanho] = '\0';
+
+    fclose(arquivo);
+    return conteudo;
+}
+
+int main()
+{
+    bQ banco;
+    inicializarBanco(&banco);
+
+    // Carrega perguntas do arquivo JSON
+    char *jsonContent = lerArquivo("perguntas.json");
+    if (!jsonContent)
+    {
+        printf("Erro ao carregar perguntas!\n");
+        return 1;
+    }
+
+    int numPerguntas = parseJson(jsonContent, &banco);
+    printf("Carregadas %d perguntas com sucesso!\n\n", numPerguntas);
+    free(jsonContent);
+
+    // Exemplo de uso: extrair perguntas por dificuldade
+    printf("=== TESTANDO PERGUNTAS DE DIFICULDADE 1 ===\n");
+    pgt *q1 = extrairPgtDificuldade(&banco, 1);
+    if (q1)
+    {
+        exibirQuestao(q1);
+    }
+
+    printf("=== TESTANDO PERGUNTAS DE DIFICULDADE 2 ===\n");
+    pgt *q2 = extrairPgtDificuldade(&banco, 2);
+    if (q2)
+    {
+        exibirQuestao(q2);
+    }
+
+    // Resetar questões para reutilizar
+    resetarQuestoes(&banco);
+    printf("\n=== QUESTOES RESETADAS ===\n");
+
+    // Extrair por índice
+    printf("\n=== EXTRAINDO QUESTAO POR INDICE (0) ===\n");
+    pgt *q3 = extrairQuestao(&banco, 0);
+    if (q3)
+    {
+        exibirQuestao(q3);
+    }
+
+    // Liberar memória
+    liberarBanco(&banco);
+    printf("Memoria liberada com sucesso!\n");
+
+    return 0;
+}
+

@@ -2,31 +2,44 @@
 #define PERGUNTA_H
 
 #include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 #define MAX_ALTERNATIVAS 4
-#define MAX_PERGUNTAS 100
+#define TAMANHO_MAX 600
 
-struct alt // Alternativa
+typedef struct // Alternativa
 {
-    char letra[4];
-    char texto[100];
+    char alternativa[MAX_ALTERNATIVAS];
+    char texto[TAMANHO_MAX];
     bool correta;
-};
+} alt;
 
-struct pgt // Pergunta
+typedef struct // Pergunta
 {
-    char enunciado[300];
-    struct alt alternativas[MAX_ALTERNATIVAS];
-    char dica[200];
+    char enunciado[TAMANHO_MAX];
+    alt alternativas[MAX_ALTERNATIVAS];
+    int numeroAlternativas;
+    char dica[TAMANHO_MAX];
     int dificuldade;
-};
+    bool jaUsada;
+} pgt;
 
-struct bP // Banco de Perguntas
+typedef struct // Banco de Perguntas
 {
-    struct pgt perguntas[MAX_PERGUNTAS];
-    int totalPerguntas;
-};
+    pgt *questoes;
+    int quantidadePgt;
+    int capacidade;
+} bQ;
 
-void inicializarEmbaralhar(int *vetor, int tamanho);
+void inicializarBanco(bQ *banco);
+void expandirBanco(bQ *banco);
+int parseJson(const char *conteudoJson, bQ *banco);
+pgt *extrairQuestao(bQ *banco, int indice);
+pgt *extrairPgtDificuldade(bQ *banco, int nivel);
+void resetarQuestoes(bQ *banco);
+void exibirQuestao(pgt *q);
+void liberarBanco(bQ *banco);
 
 #endif

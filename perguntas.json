@@ -350,6 +350,816 @@
             ],
             "dica": "Pense no sentido ingles da funcao.",
             "dificuldade": 2
+        },
+        {
+            "enunciado": "Qual e o tamanho em bytes de um int em sistemas de 32 bits?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "2 bytes",
+                    "correta": false
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "4 bytes",
+                    "correta": true
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "8 bytes",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "1 byte",
+                    "correta": false
+                }
+            ],
+            "dica": "32 bits dividido por 8.",
+            "dificuldade": 2
+        },
+        {
+            "enunciado": "Como declaramos um ponteiro para inteiro em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "int *ptr;",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "int ptr*;",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "pointer int ptr;",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "int &ptr;",
+                    "correta": false
+                }
+            ],
+            "dica": "O asterisco vem antes do nome.",
+            "dificuldade": 2
+        },
+        {
+            "enunciado": "Qual funcao aloca memoria dinamicamente em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "alloc()",
+                    "correta": false
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "malloc()",
+                    "correta": true
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "new()",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "create()",
+                    "correta": false
+                }
+            ],
+            "dica": "Memory allocation.",
+            "dificuldade": 3
+        },
+        {
+            "enunciado": "O que significa o operador -> em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Acesso a membro de struct via ponteiro",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Operador de atribuicao",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Operador de comparacao",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Operador de incremento",
+                    "correta": false
+                }
+            ],
+            "dica": "Usado com ponteiros para structs.",
+            "dificuldade": 3
+        },
+        {
+            "enunciado": "Qual biblioteca contem funcoes para manipulacao de strings?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "#include <string.h>",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "#include <strings.h>",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "#include <str.h>",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "#include <text.h>",
+                    "correta": false
+                }
+            ],
+            "dica": "Singular, nao plural.",
+            "dificuldade": 2
+        },
+        {
+            "enunciado": "Como liberamos memoria alocada dinamicamente?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "free()",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "delete()",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "release()",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "dealloc()",
+                    "correta": false
+                }
+            ],
+            "dica": "Liberte a memoria.",
+            "dificuldade": 3
+        },
+        {
+            "enunciado": "O que e um array em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Colecao de elementos do mesmo tipo",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Tipo de ponteiro",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Funcao especial",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Estrutura de dados dinamica",
+                    "correta": false
+                }
+            ],
+            "dica": "Varios elementos juntos.",
+            "dificuldade": 1
+        },
+        {
+            "enunciado": "Qual e a diferenca entre ++i e i++?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Pre-incremento vs pos-incremento",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Nao ha diferenca",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Um incrementa, outro decrementa",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Um e para int, outro para float",
+                    "correta": false
+                }
+            ],
+            "dica": "Ordem de execucao.",
+            "dificuldade": 3
+        },
+        {
+            "enunciado": "O que faz a funcao sizeof()?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Retorna tamanho em bytes",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Aloca memoria",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Libera memoria",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Copia dados",
+                    "correta": false
+                }
+            ],
+            "dica": "Tamanho de tipos e variaveis.",
+            "dificuldade": 2
+        },
+        {
+            "enunciado": "O que e um struct em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Tipo de dado composto",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Tipo de loop",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Biblioteca padrao",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Operador especial",
+                    "correta": false
+                }
+            ],
+            "dica": "Agrupa varios tipos juntos.",
+            "dificuldade": 2
+        },
+        {
+            "enunciado": "Qual e o valor de retorno padrao da funcao main()?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "0 para sucesso",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "1 para sucesso",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "-1 para sucesso",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "NULL para sucesso",
+                    "correta": false
+                }
+            ],
+            "dica": "Zero significa sem erros.",
+            "dificuldade": 2
+        },
+        {
+            "enunciado": "O que faz o operador & em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Retorna endereco de memoria",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Operador logico AND",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Operador de multiplicacao",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Operador de divisao",
+                    "correta": false
+                }
+            ],
+            "dica": "Usado para obter ponteiros.",
+            "dificuldade": 3
+        },
+        {
+            "enunciado": "Como criamos uma constante em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "const int x = 10;",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "constant int x = 10;",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "final int x = 10;",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "static int x = 10;",
+                    "correta": false
+                }
+            ],
+            "dica": "Palavra-chave de 5 letras.",
+            "dificuldade": 1
+        },
+        {
+            "enunciado": "O que e recursao em programacao?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Funcao que chama a si mesma",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Loop infinito",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Tipo de variavel",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Operador especial",
+                    "correta": false
+                }
+            ],
+            "dica": "Auto-referencia.",
+            "dificuldade": 3
+        },
+        {
+            "enunciado": "Qual funcao copia strings em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "strcpy()",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "copy()",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "strdup()",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "memcpy()",
+                    "correta": false
+                }
+            ],
+            "dica": "String copy.",
+            "dificuldade": 2
+        },
+        {
+            "enunciado": "O que e um buffer overflow?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Escrever alem do limite de um array",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Erro de compilacao",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Tipo de loop",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Funcao de biblioteca",
+                    "correta": false
+                }
+            ],
+            "dica": "Problema de seguranca comum.",
+            "dificuldade": 4
+        },
+        {
+            "enunciado": "O que faz a funcao realloc()?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Redimensiona memoria alocada",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Libera memoria",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Aloca memoria inicial",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Copia memoria",
+                    "correta": false
+                }
+            ],
+            "dica": "Re-alocacao.",
+            "dificuldade": 4
+        },
+        {
+            "enunciado": "O que e um ponteiro void em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Ponteiro generico sem tipo especifico",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Ponteiro nulo",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Ponteiro invalido",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Ponteiro para funcao",
+                    "correta": false
+                }
+            ],
+            "dica": "Pode apontar para qualquer tipo.",
+            "dificuldade": 4
+        },
+        {
+            "enunciado": "O que e um union em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Tipo que compartilha memoria entre membros",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Tipo de loop",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Operador logico",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Funcao de biblioteca",
+                    "correta": false
+                }
+            ],
+            "dica": "Parecido com struct mas economiza memoria.",
+            "dificuldade": 4
+        },
+        {
+            "enunciado": "O que faz o modificador volatile em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Impede otimizacoes do compilador",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Torna variavel constante",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Aloca memoria dinamica",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Define variavel global",
+                    "correta": false
+                }
+            ],
+            "dica": "Usado em programacao de hardware.",
+            "dificuldade": 4
+        },
+        {
+            "enunciado": "O que e um ponteiro para funcao em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Variavel que armazena endereco de funcao",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Funcao que retorna ponteiro",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Ponteiro dentro de funcao",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Tipo de array",
+                    "correta": false
+                }
+            ],
+            "dica": "Permite callbacks e funcoes como parametros.",
+            "dificuldade": 4
+        },
+        {
+            "enunciado": "O que significa segmentation fault?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Acesso a memoria invalida",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Erro de sintaxe",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Divisao por zero",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Loop infinito",
+                    "correta": false
+                }
+            ],
+            "dica": "Erro comum com ponteiros.",
+            "dificuldade": 3
+        },
+        {
+            "enunciado": "O que faz o operador ternario (?:) em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Condicional inline (if-else compacto)",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Operador de divisao",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Operador de modulo",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Operador de ponteiro",
+                    "correta": false
+                }
+            ],
+            "dica": "Tres operandos: condicao ? verdadeiro : falso.",
+            "dificuldade": 3
+        },
+        {
+            "enunciado": "O que e little-endian e big-endian?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Ordem de bytes na memoria",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Tipos de ponteiros",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Algoritmos de ordenacao",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Tipos de compiladores",
+                    "correta": false
+                }
+            ],
+            "dica": "Arquitetura de processador.",
+            "dificuldade": 4
+        },
+        {
+            "enunciado": "O que faz a diretiva #define em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Cria macro ou constante",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Define funcao",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Declara variavel",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Importa biblioteca",
+                    "correta": false
+                }
+            ],
+            "dica": "Preprocessador.",
+            "dificuldade": 2
+        },
+        {
+            "enunciado": "Qual e a diferenca entre malloc() e calloc()?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "calloc inicializa memoria com zero",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "malloc e mais rapido",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Nao ha diferenca",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "calloc libera memoria automaticamente",
+                    "correta": false
+                }
+            ],
+            "dica": "Clear allocation.",
+            "dificuldade": 3
+        },
+        {
+            "enunciado": "O que e stack overflow em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Estouro da pilha de chamadas",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Erro de sintaxe",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Problema com heap",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Tipo de ponteiro",
+                    "correta": false
+                }
+            ],
+            "dica": "Comum em recursao profunda.",
+            "dificuldade": 4
+        },
+        {
+            "enunciado": "O que faz o modificador static em variaveis locais?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Preserva valor entre chamadas",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Torna variavel constante",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Aloca na heap",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Torna variavel global",
+                    "correta": false
+                }
+            ],
+            "dica": "Tempo de vida estendido.",
+            "dificuldade": 3
+        },
+        {
+            "enunciado": "O que e um memory leak?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Memoria alocada nao liberada",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Erro de compilacao",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Tipo de ponteiro",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Funcao de biblioteca",
+                    "correta": false
+                }
+            ],
+            "dica": "Problema de gerenciamento de memoria.",
+            "dificuldade": 3
+        },
+        {
+            "enunciado": "O que faz o operador bitwise << em C?",
+            "alternativas": [
+                {
+                    "alternativa": "a)",
+                    "texto": "Desloca bits para esquerda",
+                    "correta": true
+                },
+                {
+                    "alternativa": "b)",
+                    "texto": "Compara valores",
+                    "correta": false
+                },
+                {
+                    "alternativa": "c)",
+                    "texto": "Multiplica por 2",
+                    "correta": false
+                },
+                {
+                    "alternativa": "d)",
+                    "texto": "Operador de atribuicao",
+                    "correta": false
+                }
+            ],
+            "dica": "Manipulacao de bits.",
+            "dificuldade": 3
         }
     ]
 }
