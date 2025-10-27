@@ -2,9 +2,6 @@
 #define PERGUNTA_H
 
 #include <stdbool.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
 #define MAX_ALTERNATIVAS 4
 #define TAMANHO_MAX 600
@@ -31,15 +28,16 @@ typedef struct // Banco de Perguntas
     pgt *questoes;
     int quantidadePgt;
     int capacidade;
+    int nivelAtual;
+    int niveisRestantes[5];
 } bQ;
 
-void inicializarBanco(bQ *banco);
-void expandirBanco(bQ *banco);
-int parseJson(const char *conteudoJson, bQ *banco);
-pgt *extrairQuestao(bQ *banco, int indice);
-pgt *extrairPgtDificuldade(bQ *banco, int nivel);
-void resetarQuestoes(bQ *banco);
-void exibirQuestao(pgt *q);
+int escolherNaoUsada(bQ *banco);
+bQ carregarBancoDePerguntas(const char *caminhoArquivo);
+pgt obterPerguntaNaoUsada(bQ *banco);
+pgt obterPerguntaDificuldade(bQ *banco, int nivel);
+pgt obterProxima(bQ *banco);
+void inicializarNiveis(bQ *banco);
 void liberarBanco(bQ *banco);
 
 #endif

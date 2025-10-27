@@ -1,47 +1,66 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 #include "json.h"
 
-int quantidadePerguntas()
+void limparString(char *str)
 {
-
-    char linhaLida;
-    int numeroDeQuestoes = 0;
-    int contadorLinhas = 0;
-
-    FILE *arquivoJson = fopen("perguntas.json", "r");
-
-    if (arquivoJson == NULL)
+    char *src = str, *dst = str;
+    while (*src)
     {
-        perror("Erro ao abrir o arquivo!");
-        return 1;
-    }
-
-    for (int i = 0; i < 2; i++)
-    {
-        if (fgets(linhaLida, sizeof(linhaLida), arquivoJson) != NULL)
-            ;
-        else
+        if (*src != '\"' && *src != '\n' && *src != '\r')
         {
-            perror("Arquivo vazio, ou sem primeira linha!");
-            fclose(arquivoJson);
-            return 1;
+            *dst++ = *src;
         }
+        src++;
+    }
+    *dst = '\0';
+}
+
+char *lerArquivoJson(const char *caminho)
+{
+    FILE *arquivo = fopen(caminho, "r");
+    if (!arquivo)
+    {
+        perror("Erro ao abrir arquivo JSON");
+        return NULL;
     }
 
-    while (contadorLinhas < 27 && fgets(linhaLida, sizeof(linhaLida), arquivoJson) != NULL)
+    if (fseek(arquivo, 0, SEEK_END) != 0)
     {
-        while ((numeroDeQuestoes = fgetc(arquivoJson)) != EOF)
-        {
-            if (numeroDeQuestoes == '\n')
-            {
-                printf("%d", numeroDeQuestoes);
-                numeroDeQuestoes++;
-            }
-        }
-        
-        contadorLinhas++;
+        perror("Erro ao mover o ponteiro do arquivo!");
+        fclose(arquivo);
+        return NULL;
     }
+
+    long tamanho = ftell(arquivo);
+    if (tamanho <= 0) {
+        fprintf(stderr, "Arquivo JSON vazio ou inválido: %s\n", caminho);
+        fclose(arquivo);
+        return NULL;
+    }
+    if (tamanho > 10 * 1024 * 1024) {
+        fprintf(stderr, "Arquivo JSON muito grande (>10MB): %s\n", caminho);
+        fclose(arquivo);
+        return NULL;
+    }
+
+    if (fseek(arquivo, 0, SEEK_SET) != 0)
+    {
+        perror("Erro ao mover o ponteiro do arquivo!");
+        fclose(arquivo);
+        return NULL;
+    }
+
+    char *conteudo = malloc(tamanho + 1);
+    if (!conteudo)
+    {
+        fclose(arquivo);
+        return NULL;
+    }
+
+    fread(conteudo, 1, tamanho, arquivo);
+    conteudo[tamanho] = '\0';
+    fclose(arquivo);
+    return conteudo;
 }

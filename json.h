@@ -1,8 +1,8 @@
 #ifndef JSON_H
 #define JSON_H
 
-#include "pergunta.h"
+char *lerArquivoJson(const char *nomeArquivo);
 
-
+void limparString(char *str);
 
 #endif

@@ -1,292 +1,355 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
+#include <time.h>
 #include "pergunta.h"
+#include "json.h"
 
-char *encontrarProx(char *str, const char *padrao)
+int escolherNaoUsada(bQ *banco)
 {
-    return strstr(str, padrao);
-}
-
-void etrairTextoEntreAspas(char *fonte, char *destino, int maxLen)
-{
-    char *inicio = strstr(fonte, '"');
-    if (!inicio)
+    if (banco->quantidadePgt == 0)
     {
-        destino[0] = '\0';
-        return;
+        return -1;
     }
 
-    inicio++;
+    int tentativas = 0;
+    int indice;
 
-    char *fim = strchr(inicio, '"');
-    if (!fim)
+    do
     {
-        destino[0] = '\0';
-        return;
-    }
-
-    int len = fim - inicio;
-    if (len >= maxLen)
-    {
-        len = maxLen - 1;
-    }
-
-    strncpy(destino, inicio, len);
-    destino[len] = '\0';
-}
-
-int extrairBooleano(char *fonte)
-{
-    char *valorTrue = strstr(fonte, "true");
-    char *valorFalse = strstr(fonte, "false");
-
-    if (valorTrue && (!valorFalse || valorTrue < valorFalse))
-    {
-        return 1;
-    }
-    return 0;
-}
-
-int extrairInteiro(char *fonte)
-{
-    char *aux = fonte;
-    while (*aux && (*aux < '0' || *aux > '9'))
-    {
-        aux++;
-    }
-    return atoi(aux);
-}
-
-void inicializarBanco(bQ *banco)
-{
-    banco->capacidade = 10;
-    banco->quantidadePgt = 0;
-    banco->questoes = (pgt *)malloc(banco->capacidade * sizeof(pgt));
-    if (!banco->questoes)
-    {
-        printf("Erro: Falha ao alocar memoria!\n");
-        exit(1);
-    }
-}
-
-void ExpadirBanco(bQ *banco)
-{
-    banco->capacidade *= 2;
-    pgt *novoArray = (pgt *)realloc(banco->questoes, banco->capacidade * sizeof(pgt));
-    if (!novoArray)
-    {
-        printf("Erro: Falha ao realocar memoria!\n");
-        exit(1);
-    }
-
-    banco->questoes = novoArray;
-}
-
-int parseJson(const char *conteudoJson, bQ *banco)
-{
-    char *conteudo = strdup(conteudoJson);
-    char *ptr = conteudo;
-
-    // Encontra o início do array de perguntas
-    ptr = encontrarProx(ptr, "\"Perguntas\"");
-    if (!ptr)
-    {
-        free(conteudo);
-        return 0;
-    }
-
-    ptr = encontrarProx(ptr, "[");
-    if (!ptr)
-    {
-        free(conteudo);
-        return 0;
-    }
-    ptr++;
-
-    // Processa cada questão
-    while (1)
-    {
-        // Procura próximo objeto de questão
-        char *inicioPgt = encontrarProx(ptr, "{");
-        if (!inicioPgt)
-        {
-            break;
-        }
-
-        char *fimPgt = encontrarProx(inicioPgt, "}");
-        if (!fimPgt)
-        {
-            break;
-        }
-
-        // Verifica se chegamos ao fim do array
-        char *arrayFim = strchr(ptr, ']');
-        if (arrayFim && arrayFim < inicioPgt)
-        {
-            break;
-        }
-
-        if (banco->quantidadePgt >= banco->capacidade)
-        {
-            expandirBanco(banco);
-        }
-
-        pgt *q = &banco->questoes[banco->quantidadePgt];
-        q->jaUsada = 0; // Inicializa como não usada
-        q->numeroAlternativas = 0;
-
-        // Extrai enunciado
-        char *enunciado_pos = encontrarProx(inicioPgt, "\"enunciado\"");
-        if (enunciado_pos && enunciado_pos < fimPgt)
-        {
-            extrairTextoEntreApas(enunciado_pos + 11, q->enunciado, TAMANHO_MAX);
-        }
-
-        // Extrai alternativas
-        char *altArrayInicio = encontrarProx(inicioPgt, "\"alternativas\"");
-        if (altArrayInicio && altArrayInicio < fimPgt)
-        {
-            altArrayInicio = encontrarProx(altArrayInicio, "[");
-            char *altArrayFim = encontrarProx(altArrayInicio, "]");
-
-            char *alt_ptr = altArrayInicio + 1;
-            while (q->numeroAlternativas < MAX_ALTERNATIVAS)
-            {
-                char *altInicio = encontrarProx(alt_ptr, "{");
-                if (!altInicio || altInicio > altArrayFim)
-                {
-                    break;
-                }
-
-                char *altFim = encontrarProx(altInicio, "}");
-                if (!altFim || altFim > altArrayFim)
-                {
-                    break;
-                }
-
-                alt *alternativa = &q->alternativas[q->numeroAlternativas];
-
-                // Extrai letra da alternativa
-                char *altLetra = encontrarProx(altInicio, "\"alternativa\"");
-                if (altLetra && altLetra < altFim)
-                {
-                    extrairTextoEntreAspas(altLetra + 13, alt->alternativa, 4);
-                }
-
-                // Extrai texto da alternativa
-                char *altTexto = encontrarProx(altInicio, "\"texto\"");
-                if (altTexto && altTexto < altFim)
-                {
-                    extrairTextoEntreAspas(altTexto + 7, alt->texto, TAMANHO_MAX);
-                }
-
-                // Extrai se é correta
-                char *altCorreta = encontrarProx(altInicio, "\"correta\"");
-                if (altCorreta && altCorreta < altFim)
-                {
-                    alternativa->correta = extrairBooleano(altCorreta + 9);
-                }
-
-                q->numeroAlternativas++;
-                alt_ptr = altFim + 1;
-            }
-        }
-        // Extrai dica
-        char *dicaPgt = encontrarProx(inicioPgt, "\"dica\"");
-        if (dicaPgt && dicaPgt < fimPgt)
-        {
-            extrairTextoEntreAspas(dicaPgt + 6, q->dica, TAMANHO_MAX);
-        }
-
-        // Extrai dificuldade
-        char *dificuldadePgt = encontrarProx(inicioPgt, "\"dificuldade\"");
-        if (dificuldadePgt && dificuldadePgt < fimPgt)
-        {
-            q->dificuldade = extrairInteiro(dificuldadePgt + 13);
-        }
-
-        banco->quantidadePgt++;
-        ptr = fimPgt + 1;
-    }
-
-    free(conteudo);
-    return banco->quantidadePgt;
-}
-
-pgt *extrairQuestao(bQ *banco, int indice)
-{
-    if (indice < 0 || indice >= banco->quantidadePgt)
-    {
-        printf("Erro: Indice invalido!\n");
-        return NULL;
-    }
+        indice = rand() % banco->quantidadePgt;
+        tentativas++;
+    } while (banco->questoes[indice].jaUsada && tentativas < banco->quantidadePgt * 2);
 
     if (banco->questoes[indice].jaUsada)
     {
-        printf("Erro: Esta questao ja foi usada!\n");
-        return NULL;
+        return -1;
     }
 
-    // Marca a questão como usada
-    banco->questoes[indice].jaUsada = 1;
+    banco->questoes[indice].jaUsada = true;
 
-    return &banco->questoes[indice];
+    return indice;
 }
 
-pgt *extrairPgtDificuldade(bQ *banco, int nivel)
+void inicializarNiveis(bQ *banco)
 {
-    if (nivel < 0 || nivel > 4)
+    banco->nivelAtual = 1;
+
+    // Zera os contadores
+    for (int i = 0; i < 5; i++)
     {
-        printf("Erro: Nivel invalido!\n");
-        return NULL;
+        banco->niveisRestantes[i] = 0;
     }
+    
+    // Contando quantidade de perguntas por nível
+    for (int i = 0; i < banco->quantidadePgt; i++)
+    {
+        int nivel = banco->questoes[i].dificuldade;
+        if (nivel >= 1 && nivel <= 5)
+        {
+            banco->niveisRestantes[nivel - 1]++;
+        }
+    }
+    
+    printf("Sistema de niveis inicializado: \n");
+    for (int i = 0; i < 5; i++)
+    {
+        if (banco->niveisRestantes[i] > 0)
+        {
+            printf("   Nivel %d: %d perguntas\n", i + 1, banco->niveisRestantes[i]);
+        }
+    }
+}
+
+bQ carregarBancoDePerguntas(const char *caminhoArquivo)
+{
+    bQ banco = {0};
+    banco.capacidade = 10;
+    banco.questoes = malloc(sizeof(pgt) * banco.capacidade);
+
+    char *json = lerArquivoJson("perguntas.json");
+    if (!json)
+    {
+        return banco;
+    }
+
+    char *posicao = strstr(json, "\"Perguntas\"");
+    if (!posicao)
+    {
+        free(json);
+        return banco;
+    }
+    posicao = strchr(posicao, '[');
+    if (!posicao)
+    {
+        free(json);
+        return banco;
+    }
+
+    bool inString = false;
+    bool escape = false;
+    int nivelArray = 0;
+    int nivelObjeto = 0;
+    char *inicioObjeto = NULL;
+
+    for (; *posicao; posicao++)
+    {
+        char c = *posicao;
+
+        // Controle de strings
+        if (escape)
+        {
+            escape = false;
+            continue;
+        }
+        if (c == '\\')
+        {
+            escape = true;
+            continue;
+        }
+        if (c == '"')
+        {
+            inString = !inString;
+            continue;
+        }
+
+        if (inString)
+            continue;
+
+        // Níveis
+        if (c == '[')
+        {
+            nivelArray++;
+            continue;
+        }
+        if (c == ']')
+        {
+            nivelArray--;
+            if (nivelArray == 0)
+            {
+                break;
+            }
+            continue;
+        }
+
+        if (nivelArray == 1)
+        {
+            if (c == '{')
+            {
+                if (nivelObjeto == 0)
+                {
+                    inicioObjeto = posicao;
+                }
+                nivelObjeto++;
+            }
+            else if (c == '}')
+            {
+                nivelObjeto--;
+                if (nivelObjeto == 0 && inicioObjeto)
+                {
+                    int tamanho = posicao - inicioObjeto + 1;
+                    char *bloco = malloc(tamanho + 1);
+                    strncpy(bloco, inicioObjeto, tamanho);
+                    bloco[tamanho] = '\0';
+
+                    pgt pergunta = {0};
+                    pergunta.numeroAlternativas = 0;
+                    pergunta.jaUsada = false;
+
+                    // Enunciado
+                    char *aux = strstr(bloco, "\"enunciado\"");
+                    if (aux)
+                    {
+                        aux = strchr(aux, ':');
+                        if (aux)
+                        {
+                            aux++;
+                            while (*aux && *aux != '"')
+                                aux++;
+                            if (*aux == '"')
+                                aux++;
+                            int i = 0;
+                            while (*aux && *aux != '"' && i < TAMANHO_MAX - 1)
+                                pergunta.enunciado[i++] = *aux++;
+                            pergunta.enunciado[i] = '\0';
+                        }
+                    }
+
+                    // Dica
+                    aux = strstr(bloco, "\"dica\"");
+                    if (aux)
+                    {
+                        aux = strchr(aux, ':');
+                        if (aux)
+                        {
+                            aux++;
+                            while (*aux && *aux != '"')
+                                aux++;
+                            if (*aux == '"')
+                                aux++;
+                            int i = 0;
+                            while (*aux && *aux != '"' && i < TAMANHO_MAX - 1)
+                                pergunta.dica[i++] = *aux++;
+                            pergunta.dica[i] = '\0';
+                        }
+                    }
+
+                    // Dificuldade
+                    aux = strstr(bloco, "\"dificuldade\"");
+                    if (aux)
+                    {
+                        aux = strchr(aux, ':');
+                        if (aux)
+                        {
+                            pergunta.dificuldade = atoi(aux + 1);
+                        }
+                    }
+
+                    // Alternativas
+                    char *altPtr = bloco;
+                    while ((altPtr = strstr(altPtr, "\"alternativa\"")) != NULL &&
+                           pergunta.numeroAlternativas < MAX_ALTERNATIVAS)
+                    {
+                        alt *altAtual = &pergunta.alternativas[pergunta.numeroAlternativas];
+
+                        // Letra
+                        char *t = strchr(altPtr, ':');
+                        if (t)
+                        {
+                            t++;
+                            while (*t && *t != '"')
+                                t++;
+                            if (*t == '"')
+                                t++;
+                            int i = 0;
+                            while (*t && *t != '"' && i < 3)
+                                altAtual->alternativa[i++] = *t++;
+                            altAtual->alternativa[i] = '\0';
+                        }
+
+                        // Texto
+                        t = strstr(altPtr, "\"texto\"");
+                        if (t)
+                        {
+                            t = strchr(t, ':');
+                            if (t)
+                            {
+                                t++;
+                                while (*t && *t != '"')
+                                    t++;
+                                if (*t == '"')
+                                    t++;
+                                int i = 0;
+                                while (*t && *t != '"' && i < TAMANHO_MAX - 1)
+                                    altAtual->texto[i++] = *t++;
+                                altAtual->texto[i] = '\0';
+                            }
+                        }
+
+                        // Correta
+                        t = strstr(altPtr, "\"correta\"");
+                        altAtual->correta = (t && strstr(t, "true")) ? true : false;
+
+                        pergunta.numeroAlternativas++;
+                        altPtr++;
+                    }
+
+                    // Adiciona ao banco
+                    if (banco.quantidadePgt >= banco.capacidade)
+                    {
+                        banco.capacidade *= 2;
+                        banco.questoes = realloc(banco.questoes, banco.capacidade * sizeof(pgt));
+                    }
+
+                    banco.questoes[banco.quantidadePgt++] = pergunta;
+                    free(bloco);
+                }
+            }
+        }
+    }
+
+    free(json);
+    inicializarNiveis(&banco);
+    return banco;
+}
+
+pgt obterPerguntaDificuldade(bQ *banco, int nivel)
+{
+    pgt perguntaVazia = {0};
+
+    int indices[1000];
+    int totalIndices = 0;
 
     for (int i = 0; i < banco->quantidadePgt; i++)
     {
         if (banco->questoes[i].dificuldade == nivel && !banco->questoes[i].jaUsada)
         {
-            banco->questoes[i].jaUsada = 1;
-            return &banco->questoes[i];
+            indices[totalIndices++] = i;
         }
     }
+    
+    if (totalIndices == 0)
+    {
+        printf("Nunhuma pergunta disponível para dificuldade %d!\n", nivel);
+        return perguntaVazia;
+    }
+    
+    int escolhido = indices[rand() % totalIndices];
 
-    printf("Erro: Nenhuma questao disponivel com dificuldade %d\n", nivel);
-    return NULL;
+    banco->questoes[escolhido].jaUsada = true;
+    if (nivel >= 1 && nivel <= 5)
+    {
+        banco->niveisRestantes[nivel - 1]--;
+    }
+    
+    return banco->questoes[escolhido];
 }
 
-void resetarQuestoes(bQ *banco)
+pgt obterProxima(bQ *banco)
 {
-    for (int i = 0; i < banco->quantidadePgt; i++)
+    pgt perguntaVazia = {0};
+
+    while (banco->nivelAtual <= 5)
     {
-        banco->questoes[i].jaUsada = 0;
+        if (banco->niveisRestantes[banco->nivelAtual - 1] > 0)
+        {
+            printf("\n=== NIVEL %d ===\n", banco->nivelAtual);
+            printf("Perguntas restantes no nivel %d: %d\n\n", banco->nivelAtual, banco->niveisRestantes[banco->nivelAtual - 1]);
+
+            return obterPerguntaDificuldade(banco, banco->nivelAtual);
+        }
+        else
+        {
+            printf("\n*** NIVEL %d COMPLETO! ***\n", banco->nivelAtual);
+            banco->nivelAtual++;
+
+            if (banco->nivelAtual <= 5 && banco->niveisRestantes[banco->nivelAtual - 1] > 0)
+            {
+                printf("Avancando para NIVEL %d...\n\n", banco->nivelAtual);
+            }
+        }
     }
+    
+    printf("\n*** PARABENS! TODOS OS NIVEIS FORAM COMPLETADOS! ***\n");
+    return perguntaVazia;
 }
 
-void exibirQuestao(pgt *q)
+pgt obterPerguntaNaoUsada(bQ *banco)
 {
-    if (!q)
+    pgt perguntaVazia = {0};
+    int indice = escolherNaoUsada(banco);
+
+    if (indice == -1)
     {
-        return;
+        printf("Todas as perguntas ja foram usadas!\n");
+        return perguntaVazia;
     }
 
-    printf("\n=== QUESTAO ===\n");
-    printf("Enunciado: %s\n", q->enunciado);
-    printf("Dificuldade: %d\n\n", q->dificuldade);
-
-    printf("Alternativas:\n");
-    for (int i = 0; i < q->numeroAlternativas; i++)
-    {
-        printf("  %s %s %s\n",
-               q->alternativas[i].alternativa,
-               q->alternativas[i].texto,
-               q->alternativas[i].correta ? "[CORRETA]" : "");
-    }
-    printf("===============\n\n");
+    return banco->questoes[indice];
 }
 
-void liberar_banco(bQ *banco)
+void liberarBanco(bQ *banco)
 {
     if (banco->questoes)
     {

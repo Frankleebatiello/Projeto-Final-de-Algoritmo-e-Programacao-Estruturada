@@ -2,6 +2,6 @@
 #define UTILS_H
 
 void limparBuffer();
-void centralizarTexto(const char* texto, int largura);
+void centralizarTexto(const char* texto);
 
 #endif
