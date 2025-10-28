@@ -3,18 +3,18 @@
 #include <string.h>
 #include "json.h"
 
-void limparString(char *str)
+void limparString(char *string)
 {
-    char *src = str, *dst = str;
-    while (*src)
+    char *caminho = string, *destino = string;
+    while (*caminho)
     {
-        if (*src != '\"' && *src != '\n' && *src != '\r')
+        if (*caminho != '\"' && *caminho != '\n' && *caminho != '\r')
         {
-            *dst++ = *src;
+            *destino++ = *caminho;
         }
-        src++;
+        caminho++;
     }
-    *dst = '\0';
+    *destino = '\0';
 }
 
 char *lerArquivoJson(const char *caminho)
