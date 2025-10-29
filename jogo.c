@@ -92,24 +92,24 @@ int usarDica (acoesJogador *acoes, pgt *perguntaAtual)
     return 1;
 }
 
-void exibirStatus (acoesJogador *acoes)
+void exibirStatus (acoesJogador *acoes, int largura)
 {
-    centralizarTexto("ACOES DISPONIVEIS:");
-    centralizarTexto("VIDAS: ");
+    centralizarTexto("ACOES DISPONIVEIS", largura);
+    centralizarTexto("VIDAS: ", largura);
     printf("%d\n\n", acoes->vidas);
-    centralizarTexto("ACERTOS: ");
+    centralizarTexto("ACERTOS: ", largura);
     printf("%d\n\n", acoes->acertos);
-    centralizarTexto("ERROS: ");
+    centralizarTexto("ERROS: ", largura);
     printf("%d\n\n", acoes->erros);
-    centralizarTexto("DICAS: ");
+    centralizarTexto("DICAS: ", largura);
     printf("%d\n\n", acoes->dicas);
-    centralizarTexto("PULOS: ");
+    centralizarTexto("PULOS: ", largura);
     printf("%d\n\n", acoes->pulos);
-    centralizarTexto("TROCAS: ");
+    centralizarTexto("TROCAS: ", largura);
     printf("%d\n\n", acoes->trocas);
 }
 
-void exibirPergunta(pgt *pergunta, int numeroPergunta)
+void exibirPergunta(pgt *pergunta, int numeroPergunta, int largura)
 {
     if(pergunta == NULL)
     {
@@ -120,13 +120,13 @@ void exibirPergunta(pgt *pergunta, int numeroPergunta)
     printf("\n");
     char cabecalho[100];
     sprintf(cabecalho, "Pergunta: %d - Difivuldade: %d\n\n", numeroPergunta, pergunta->dificuldade);
-    centralizarTexto(cabecalho);
+    centralizarTexto(cabecalho, largura);
 
     printf("%s\n\n", pergunta->enunciado);
 
     for (int i = 0; i < pergunta->numeroAlternativas; i++)
     {
-        printf("%s) - %s\n", pergunta->alternativas[i].alternativa, pergunta->alternativas->texto);
+        printf("%s - %s\n", pergunta->alternativas[i].alternativa, pergunta->alternativas[i].texto);
     }
     printf("\n");
 }
@@ -153,12 +153,14 @@ int validarResposta(pgt *pergunta, char resposta)
     return 0;
 }
 
-void perderVida(acoesJogador *acoes)
+void perderVida(acoesJogador *acoes, int largura)
 {
     acoes->vidas--;
     acoes->erros++;
-    printf("\nRESPOSTA INCORRETA!!! Voce perdeu uma vida!\n");
-    printf("Vidas restantes: %d\n", acoes->vidas);
+    centralizarTexto("\nRESPOSTA INCORRETA!!! Voce perdeu uma vida!\n", largura);
+    char lyfe[19];
+    sprintf(lyfe, "Vidas Restantes: %d\n", acoes->vidas);
+    centralizarTexto(lyfe, largura);
 }
 
 int verificarVitoria(bQ *banco)
@@ -171,39 +173,49 @@ int verificarDerrota(acoesJogador *acoes)
     return acoes->vidas <= 0;
 }
 
-void exibirResultadoFinal(acoesJogador *acoes, int venceu)
+void exibirResultadoFinal(acoesJogador *acoes, int venceu, int largura)
 {
     printf("\n\n");
-    centralizarTexto("========================================");
+    preencher(largura, '~');
     
     if (venceu)
     {
-        centralizarTexto("PARABENS! VOCE VENCEU!");
-        centralizarTexto("========================================");
+        centralizarTexto("PARABENS! VOCE VENCEU!", largura);
+        preencher(largura, '~');
         printf("\n");
-        centralizarTexto("Voce completou todos os niveis!");
+        centralizarTexto("Voce completou todos os niveis!", largura);
     }
     else
     {
-        centralizarTexto("GAME OVER!");
-        centralizarTexto("========================================");
+        centralizarTexto("GAME OVER!", largura);
+        preencher(largura, '~');
         printf("\n");
-        centralizarTexto("Suas vidas acabaram!");
+        centralizarTexto("Suas vidas acabaram!", largura);
     }
     
     printf("\n");
-    centralizarTexto("--- ESTATISTICAS FINAIS ---");
+    centralizarTexto("ESTATISTICAS FINAIS", largura);
     printf("\n");
-    printf("  Total de Acertos: %d\n", acoes->acertos);
-    printf("  Total de Erros: %d\n", acoes->erros);
+    printf("Total de Acertos: %d\n", acoes->acertos);
+    printf("Total de Erros: %d\n", acoes->erros);
     
     if (acoes->acertos + acoes->erros > 0)
     {
         float taxa = (float)acoes->acertos / (acoes->acertos + acoes->erros) * 100;
-        printf("  Taxa de Acerto: %.1f%%\n", taxa);
+        printf("Taxa de Acerto: %.1f%%\n", taxa);
     }
     
     printf("\n");
-    centralizarTexto("Obrigado por jogar!");
+    centralizarTexto("Obrigado por jogar!", largura);
     printf("\n");
+}
+
+void desenvolvedores (int largura)
+{
+    alinharEsquerda("nada ainda", largura);   
+}
+
+void comentario (int largura)
+{
+    alinharEsquerda("nada ainda", largura);   
 }
