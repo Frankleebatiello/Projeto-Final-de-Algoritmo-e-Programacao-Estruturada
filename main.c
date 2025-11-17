@@ -1,10 +1,11 @@
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "interface.h"
+#include <ctype.h>
+#include "pergunta.h"
 #include "jogo.h"
 #include "json.h"
-#include "pergunta.h"
+#include "interface.h"
 #include "utils.h"
 
 int main()
@@ -12,82 +13,55 @@ int main()
     srand(time(NULL));
 
     int largura = larguraTerminal();
-    int menu1;
 
-    do
+    system("cls");
+
+    bQ banco = carregarBancoDePerguntas("perguntas.json");
+    if (banco.quantidadePgt == 0)
+    {
+        printf("ERRO: Nenhuma pergunta carregada!\n");
+        return 1;
+    }
+
+    int opcaoMenu;
+    char coment[500];
+    while (1)
     {
         system("cls");
-
         exibirTitulo(largura);
         exibirMenu(largura);
 
+        printf("\nEscolha uma opcao: ");
+        scanf("%d", &opcaoMenu);
         limparBuffer();
-        scanf("%d", &menu1);
 
-        switch (menu1)
+        switch (opcaoMenu)
         {
         case 1:
-            exibirRegras(largura);
-            exibirMenu2(largura);
-
-            char menu2;
-            limparBuffer();
-            scanf("%c", menu2);
-            menu2 = toupper(menu2);
-
-            switch (menu2)
-            {
-            case 'a':
-            case 'b':
-            case 'c':
-            case 'd':
-                int validarResposta(pgt * pergunta, menu2) break;
-
-            case '1':
-                int usarDica(acoesJogador * acoes, pgt * perguntaAtual);
-                break;
-
-            case '2':
-                int pularPergunta(acoesJogador * acoes, bQ * banco, pgt * *perguntaAtual);
-                break;
-
-            case '3':
-                int trocarPergunta(acoesJogador * acoes, bQ * banco, pgt * *perguntaAtual);
-                break;
-
-            case '4':
-                void exibirStatus(acoesJogador * acoes, int largura);
-                break;
-
-            case '5':
-                printf("Tem certeza que deseja sair?");
-                printf("[S] - Sim\n");
-                printf("[N] - Nao\n");
-
-                break;
-
-            default:
-                break;
-            }
+            jogarPartida(&banco, largura);
             break;
         case 2:
-            desenvolvedores(largura);
+            exibirRegras(largura);
+            getchar();
             break;
-
         case 3:
-            comentario(largura);
+            desenvolvedores(largura);
+            getchar();
             break;
-
         case 4:
+            comentario(largura, coment);
+            getchar();
             break;
-
+        case 5:
+            sair(largura, coment);
+            break;
         default:
-            printf("Opcao invalida! Pressione ENTER para continuar...");
+            printf("Opcao invalida!\n");
+            printf("Pressione ENTER para continuar...");
             getchar();
-            getchar();
-            break;
         }
-    } while (menu1 != 4);
+    }
 
+    liberarBanco(&banco);
     return 0;
 }

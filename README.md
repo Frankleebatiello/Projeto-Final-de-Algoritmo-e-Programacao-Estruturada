@@ -87,7 +87,6 @@ Cada pergunta:
 # Bloco de código com linguagem
 print("Olá, Mundo!")
 ```
-
 ---
 
 Linha horizontal

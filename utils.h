@@ -18,6 +18,4 @@ void preencher(int largura, char caractere);
 
 void alinharEsquerda(const char *texto, int largura);
 
-void converter (char *letra[1], int *numero);
-
 #endif

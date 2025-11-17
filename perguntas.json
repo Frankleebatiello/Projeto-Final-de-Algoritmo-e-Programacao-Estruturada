@@ -1324,6 +1324,33 @@
       "dificuldade": 2
     },
     {
+      "enunciado": "====================================",
+      "alternativas": [
+        {
+          "alternativa": "a)",
+          "texto": "=========",
+          "correta": true
+        },
+        {
+          "alternativa": "b)",
+          "texto": "=========",
+          "correta": false
+        },
+        {
+          "alternativa": "c)",
+          "texto": "=========",
+          "correta": false
+        },
+        {
+          "alternativa": "d)",
+          "texto": "=========",
+          "correta": false
+        }
+      ],
+      "dica": "===============",
+      "dificuldade": 2
+    },
+    {
       "enunciado": "Qual funcao aloca memoria dinamicamente em C?",
       "alternativas": [
         {
@@ -1915,6 +1942,87 @@
         }
       ],
       "dica": "Operacao logica OU em bits.",
+      "dificuldade": 3
+    },
+    {
+      "enunciado": "====================================",
+      "alternativas": [
+        {
+          "alternativa": "a)",
+          "texto": "=========",
+          "correta": true
+        },
+        {
+          "alternativa": "b)",
+          "texto": "=========",
+          "correta": false
+        },
+        {
+          "alternativa": "c)",
+          "texto": "=========",
+          "correta": false
+        },
+        {
+          "alternativa": "d)",
+          "texto": "=========",
+          "correta": false
+        }
+      ],
+      "dica": "===============",
+      "dificuldade": 3
+    },
+    {
+      "enunciado": "====================================",
+      "alternativas": [
+        {
+          "alternativa": "a)",
+          "texto": "=========",
+          "correta": true
+        },
+        {
+          "alternativa": "b)",
+          "texto": "=========",
+          "correta": false
+        },
+        {
+          "alternativa": "c)",
+          "texto": "=========",
+          "correta": false
+        },
+        {
+          "alternativa": "d)",
+          "texto": "=========",
+          "correta": false
+        }
+      ],
+      "dica": "===============",
+      "dificuldade": 3
+    },
+    {
+      "enunciado": "====================================",
+      "alternativas": [
+        {
+          "alternativa": "a)",
+          "texto": "=========",
+          "correta": true
+        },
+        {
+          "alternativa": "b)",
+          "texto": "=========",
+          "correta": false
+        },
+        {
+          "alternativa": "c)",
+          "texto": "=========",
+          "correta": false
+        },
+        {
+          "alternativa": "d)",
+          "texto": "=========",
+          "correta": false
+        }
+      ],
+      "dica": "===============",
       "dificuldade": 3
     },
     {
@@ -2563,6 +2671,33 @@
         }
       ],
       "dica": "Acesso a mesma memoria como tipos diferentes.",
+      "dificuldade": 4
+    },
+    {
+      "enunciado": "====================================",
+      "alternativas": [
+        {
+          "alternativa": "a)",
+          "texto": "=========",
+          "correta": true
+        },
+        {
+          "alternativa": "b)",
+          "texto": "=========",
+          "correta": false
+        },
+        {
+          "alternativa": "c)",
+          "texto": "=========",
+          "correta": false
+        },
+        {
+          "alternativa": "d)",
+          "texto": "=========",
+          "correta": false
+        }
+      ],
+      "dica": "===============",
       "dificuldade": 4
     }
   ]

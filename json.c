@@ -5,10 +5,12 @@
 
 void limparString(char *string)
 {
-    char *caminho = string, *destino = string;
+    char *caminho = string;
+    char *destino = string;
+    
     while (*caminho)
     {
-        if (*caminho != '\"' && *caminho != '\n' && *caminho != '\r')
+        if (*caminho != '\n' && *caminho != '\r')
         {
             *destino++ = *caminho;
         }
@@ -22,7 +24,7 @@ char *lerArquivoJson(const char *caminho)
     FILE *arquivo = fopen(caminho, "r");
     if (!arquivo)
     {
-        perror("Erro ao abrir arquivo JSON");
+        printf("Erro ao abrir o arquivo %s\n", caminho);
         return NULL;
     }
 
@@ -62,5 +64,7 @@ char *lerArquivoJson(const char *caminho)
     fread(conteudo, 1, tamanho, arquivo);
     conteudo[tamanho] = '\0';
     fclose(arquivo);
+
+    limparString(conteudo);
     return conteudo;
 }

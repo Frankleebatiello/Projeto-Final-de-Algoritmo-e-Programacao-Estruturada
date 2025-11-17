@@ -4,12 +4,21 @@
 #include <stdio.h>
 #include "utils.h"
 
-void exibirTitulo(int larg);
+void exibirTitulo(int largura);
 
-void exibirRegras(int larg);
+void cabecalho(const char *texto1, const char *texto2, int largura);
 
-void exibirMenu(int larg);
+void exibirRegras(int largura);
 
-void exibirMenu2(int larg);
+void exibirMenu(int largura);
+
+void exibirMenu2(int largura);
+
+int sair(int largura, const char *comentario);
+
+void desenvolvedores (int largura);
+
+void comentario (int largura, char *comentario);
+
 
 #endif

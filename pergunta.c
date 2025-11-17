@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <windows.h>
 #include <time.h>
 #include "pergunta.h"
 #include "json.h"
@@ -36,13 +37,11 @@ void inicializarNiveis(bQ *banco)
 {
     banco->nivelAtual = 1;
 
-    // Zera os contadores
     for (int i = 0; i < 5; i++)
     {
         banco->niveisRestantes[i] = 0;
     }
     
-    // Contando quantidade de perguntas por nível
     for (int i = 0; i < banco->quantidadePgt; i++)
     {
         int nivel = banco->questoes[i].dificuldade;
@@ -60,6 +59,8 @@ void inicializarNiveis(bQ *banco)
             printf("   Nivel %d: %d perguntas\n", i + 1, banco->niveisRestantes[i]);
         }
     }
+    printf("Pressione ENTER para continuar...");
+    getchar();
 }
 
 bQ carregarBancoDePerguntas(const char *caminhoArquivo)
@@ -68,24 +69,34 @@ bQ carregarBancoDePerguntas(const char *caminhoArquivo)
     banco.capacidade = 10;
     banco.questoes = malloc(sizeof(pgt) * banco.capacidade);
 
-    char *json = lerArquivoJson("perguntas.json");
+    printf("[DEBUG] Tentando carregar arquivo: %s\n", caminhoArquivo);
+
+    char *json = lerArquivoJson(caminhoArquivo);
     if (!json)
     {
+        fprintf(stderr, "ERRO: Arquivo de perguntas '%s' nao encontrado ou esta vazio!\n", caminhoArquivo);
         return banco;
     }
 
-    char *posicao = strstr(json, "\"Perguntas\"");
+    printf("[DEBUG] Arquivo carregado com sucesso. Tamanho: %lu bytes\n", strlen(json));
+
+    char *posicao = strstr(json, "Perguntas");
     if (!posicao)
     {
+        fprintf(stderr, "[DEBUG] Nao encontrou 'Perguntas' no JSON\n");
         free(json);
         return banco;
     }
+    
     posicao = strchr(posicao, '[');
     if (!posicao)
     {
+        fprintf(stderr, "[DEBUG] Nao encontrou '[' apos 'Perguntas'\n");
         free(json);
         return banco;
     }
+
+    printf("[DEBUG] Iniciando parsing das perguntas...\n");
 
     bool inString = false;
     bool escape = false;
@@ -97,27 +108,17 @@ bQ carregarBancoDePerguntas(const char *caminhoArquivo)
     {
         char c = *posicao;
 
-        // Controle de strings
         if (escape)
         {
             escape = false;
             continue;
         }
+
         if (c == '\\')
         {
             escape = true;
             continue;
         }
-        if (c == '"')
-        {
-            inString = !inString;
-            continue;
-        }
-
-        if (inString)
-            continue;
-
-        // Níveis
         if (c == '[')
         {
             nivelArray++;
@@ -157,46 +158,51 @@ bQ carregarBancoDePerguntas(const char *caminhoArquivo)
                     pergunta.numeroAlternativas = 0;
                     pergunta.jaUsada = false;
 
-                    // Enunciado
-                    char *aux = strstr(bloco, "\"enunciado\"");
+                    char *aux = strstr(bloco, "enunciado");
                     if (aux)
                     {
                         aux = strchr(aux, ':');
                         if (aux)
                         {
                             aux++;
-                            while (*aux && *aux != '"')
-                                aux++;
-                            if (*aux == '"')
+                            while (*aux && (*aux == ' ' || *aux == '\t'))
                                 aux++;
                             int i = 0;
-                            while (*aux && *aux != '"' && i < TAMANHO_MAX - 1)
+                            while (*aux && *aux != ',' && *aux != '}' && i < TAMANHO_MAX - 1)
+                            {
                                 pergunta.enunciado[i++] = *aux++;
+                            }
                             pergunta.enunciado[i] = '\0';
+                            while (i > 0 && pergunta.enunciado[i-1] == ' ')
+                            {
+                                pergunta.enunciado[--i] = '\0';
+                            }
                         }
                     }
 
-                    // Dica
-                    aux = strstr(bloco, "\"dica\"");
+                    aux = strstr(bloco, "dica");
                     if (aux)
                     {
                         aux = strchr(aux, ':');
                         if (aux)
                         {
                             aux++;
-                            while (*aux && *aux != '"')
-                                aux++;
-                            if (*aux == '"')
+                            while (*aux && (*aux == ' ' || *aux == '\t'))
                                 aux++;
                             int i = 0;
-                            while (*aux && *aux != '"' && i < TAMANHO_MAX - 1)
+                            while (*aux && *aux != ',' && *aux != '}' && i < TAMANHO_MAX - 1)
+                            {
                                 pergunta.dica[i++] = *aux++;
+                            }
                             pergunta.dica[i] = '\0';
+                            while (i > 0 && pergunta.dica[i-1] == ' ')
+                            {
+                                pergunta.dica[--i] = '\0';
+                            }
                         }
                     }
 
-                    // Dificuldade
-                    aux = strstr(bloco, "\"dificuldade\"");
+                    aux = strstr(bloco, "dificuldade");
                     if (aux)
                     {
                         aux = strchr(aux, ':');
@@ -206,19 +212,17 @@ bQ carregarBancoDePerguntas(const char *caminhoArquivo)
                         }
                     }
 
-                    // Alternativas
                     char *altPtr = bloco;
                     while ((altPtr = strstr(altPtr, "\"alternativa\"")) != NULL &&
                            pergunta.numeroAlternativas < MAX_ALTERNATIVAS)
                     {
                         alt *altAtual = &pergunta.alternativas[pergunta.numeroAlternativas];
 
-                        // Letra
                         char *t = strchr(altPtr, ':');
                         if (t)
                         {
                             t++;
-                            while (*t && *t != '"')
+                            while (*t && (*t == ' ' || *t == '\t' || *t == '\n' || *t == '\r'))
                                 t++;
                             if (*t == '"')
                                 t++;
@@ -228,7 +232,6 @@ bQ carregarBancoDePerguntas(const char *caminhoArquivo)
                             altAtual->alternativa[i] = '\0';
                         }
 
-                        // Texto
                         t = strstr(altPtr, "\"texto\"");
                         if (t)
                         {
@@ -236,7 +239,7 @@ bQ carregarBancoDePerguntas(const char *caminhoArquivo)
                             if (t)
                             {
                                 t++;
-                                while (*t && *t != '"')
+                                while (*t && (*t == ' ' || *t == '\t' || *t == '\n' || *t == '\r'))
                                     t++;
                                 if (*t == '"')
                                     t++;
@@ -247,15 +250,13 @@ bQ carregarBancoDePerguntas(const char *caminhoArquivo)
                             }
                         }
 
-                        // Correta
-                        t = strstr(altPtr, "\"correta\"");
+                        t = strstr(altPtr, "correta");
                         altAtual->correta = (t && strstr(t, "true")) ? true : false;
 
                         pergunta.numeroAlternativas++;
                         altPtr++;
                     }
 
-                    // Adiciona ao banco
                     if (banco.quantidadePgt >= banco.capacidade)
                     {
                         banco.capacidade *= 2;
@@ -269,8 +270,14 @@ bQ carregarBancoDePerguntas(const char *caminhoArquivo)
         }
     }
 
+    printf("[DEBUG] Total de perguntas carregadas: %d\n", banco.quantidadePgt);
     free(json);
-    inicializarNiveis(&banco);
+    
+    if (banco.quantidadePgt > 0)
+    {
+        inicializarNiveis(&banco);
+    }
+    
     return banco;
 }
 

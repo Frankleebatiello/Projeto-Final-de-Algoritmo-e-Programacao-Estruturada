@@ -6,14 +6,16 @@
 #define MAX_ALTERNATIVAS 4
 #define TAMANHO_MAX 600
 
-typedef struct // Alternativa
+// Alternativa
+typedef struct
 {
     char alternativa[MAX_ALTERNATIVAS];
     char texto[TAMANHO_MAX];
     bool correta;
 } alt;
 
-typedef struct // Pergunta
+// Pergunta
+typedef struct
 {
     char enunciado[TAMANHO_MAX];
     alt alternativas[MAX_ALTERNATIVAS];
@@ -23,7 +25,8 @@ typedef struct // Pergunta
     bool jaUsada;
 } pgt;
 
-typedef struct // Banco de Perguntas
+// Banco de Perguntas
+typedef struct
 {
     pgt *questoes;
     int quantidadePgt;
