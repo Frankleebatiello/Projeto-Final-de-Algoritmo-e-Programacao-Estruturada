@@ -37,8 +37,8 @@
         },
         {
           "alternativa": "b)",
-          "texto": ".c",
-          "correta": true
+          "texto": "css",
+          "correta": false
         },
         {
           "alternativa": "c)",
@@ -47,8 +47,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "css",
-          "correta": false
+          "texto": ".c",
+          "correta": true
         }
       ],
       "dica": "Esta no nome.",
@@ -59,8 +59,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "printf()",
-          "correta": true
+          "texto": "echo",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -69,8 +69,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "echo",
-          "correta": false
+          "texto": "printf()",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -167,8 +167,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "char",
-          "correta": true
+          "texto": "string",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -182,8 +182,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "string",
-          "correta": false
+          "texto": "char",
+          "correta": true
         }
       ],
       "dica": "E sempre 1 byte.",
@@ -199,8 +199,8 @@
         },
         {
           "alternativa": "b)",
-          "texto": "// comentario",
-          "correta": true
+          "texto": "-- comentario",
+          "correta": false
         },
         {
           "alternativa": "c)",
@@ -209,8 +209,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "-- comentario",
-          "correta": false
+          "texto": "// comentario",
+          "correta": true
         }
       ],
       "dica": "Pense parecido com HTML.",
@@ -221,8 +221,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "scanf()",
-          "correta": true
+          "texto": "cin",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -231,8 +231,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "cin",
-          "correta": false
+          "texto": "scanf()",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -275,8 +275,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Colecao de elementos do mesmo tipo",
-          "correta": true
+          "texto": "Funcao especial",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -285,8 +285,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "Funcao especial",
-          "correta": false
+          "texto": "Colecao de elementos do mesmo tipo",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -302,13 +302,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "const int x = 10;",
-          "correta": true
+          "texto": "constant int x = 10;",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "constant int x = 10;",
-          "correta": false
+          "texto": "const int x = 10;",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -329,8 +329,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "float",
-          "correta": true
+          "texto": "char",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -339,8 +339,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "char",
-          "correta": false
+          "texto": "float",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -383,8 +383,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "double x;",
-          "correta": true
+          "texto": "bigfloat x;",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -398,8 +398,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "bigfloat x;",
-          "correta": false
+          "texto": "double x;",
+          "correta": true
         }
       ],
       "dica": "Dobro de precisao.",
@@ -410,8 +410,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "while",
-          "correta": true
+          "texto": "switch",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -420,8 +420,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "switch",
-          "correta": false
+          "texto": "while",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -437,8 +437,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "return",
-          "correta": true
+          "texto": "continue",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -447,8 +447,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "continue",
-          "correta": false
+          "texto": "return",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -464,13 +464,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "int arr[10];",
-          "correta": true
+          "texto": "array int arr(10);",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "array int arr(10);",
-          "correta": false
+          "texto": "int arr[10];",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -491,8 +491,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "*",
-          "correta": true
+          "texto": "**",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -506,8 +506,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "**",
-          "correta": false
+          "texto": "*",
+          "correta": true
         }
       ],
       "dica": "Asterisco.",
@@ -518,8 +518,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "if",
-          "correta": true
+          "texto": "when",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -533,8 +533,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "when",
-          "correta": false
+          "texto": "if",
+          "correta": true
         }
       ],
       "dica": "Se em ingles.",
@@ -545,8 +545,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "/* comentario */",
-          "correta": true
+          "texto": "''' comentario '''",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -560,8 +560,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "''' comentario '''",
-          "correta": false
+          "texto": "/* comentario */",
+          "correta": true
         }
       ],
       "dica": "Barra e asterisco.",
@@ -599,8 +599,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "main",
-          "correta": true
+          "texto": "begin",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -609,8 +609,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "begin",
-          "correta": false
+          "texto": "main",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -626,13 +626,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "&&",
-          "correta": true
+          "texto": "||",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "||",
-          "correta": false
+          "texto": "&&",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -653,8 +653,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "||",
-          "correta": true
+          "texto": "OR",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -668,8 +668,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "OR",
-          "correta": false
+          "texto": "||",
+          "correta": true
         }
       ],
       "dica": "Duas barras verticais.",
@@ -680,8 +680,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "%d",
-          "correta": true
+          "texto": "%s",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -690,8 +690,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "%s",
-          "correta": false
+          "texto": "%d",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -761,13 +761,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "2 bytes",
-          "correta": false
+          "texto": "4 bytes",
+          "correta": true
         },
         {
           "alternativa": "b)",
-          "texto": "4 bytes",
-          "correta": true
+          "texto": "2 bytes",
+          "correta": false
         },
         {
           "alternativa": "c)",
@@ -788,8 +788,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "int *ptr;",
-          "correta": true
+          "texto": "int &ptr;",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -803,8 +803,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "int &ptr;",
-          "correta": false
+          "texto": "int *ptr;",
+          "correta": true
         }
       ],
       "dica": "O asterisco vem antes do nome.",
@@ -815,8 +815,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "#include <string.h>",
-          "correta": true
+          "texto": "#include <str.h>",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -825,8 +825,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "#include <str.h>",
-          "correta": false
+          "texto": "#include <string.h>",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -842,8 +842,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Retorna tamanho em bytes",
-          "correta": true
+          "texto": "Libera memoria",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -852,8 +852,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "Libera memoria",
-          "correta": false
+          "texto": "Retorna tamanho em bytes",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -896,8 +896,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "0 para sucesso",
-          "correta": true
+          "texto": "-1 para sucesso",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -906,8 +906,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "-1 para sucesso",
-          "correta": false
+          "texto": "0 para sucesso",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -923,8 +923,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "strcpy()",
-          "correta": true
+          "texto": "memcpy()",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -938,8 +938,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "memcpy()",
-          "correta": false
+          "texto": "strcpy()",
+          "correta": true
         }
       ],
       "dica": "String copy.",
@@ -950,13 +950,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Cria macro ou constante",
-          "correta": true
+          "texto": "Define funcao",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "Define funcao",
-          "correta": false
+          "texto": "Cria macro ou constante",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -1004,8 +1004,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "%",
-          "correta": true
+          "texto": "\\",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1019,8 +1019,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "\\",
-          "correta": false
+          "texto": "%",
+          "correta": true
         }
       ],
       "dica": "Operador modulo.",
@@ -1031,8 +1031,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "arr[2]",
-          "correta": true
+          "texto": "arr(2)",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1041,8 +1041,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "arr(2)",
-          "correta": false
+          "texto": "arr[2]",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -1058,13 +1058,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "for",
-          "correta": true
+          "texto": "while",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "while",
-          "correta": false
+          "texto": "for",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -1085,8 +1085,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "strcmp()",
-          "correta": true
+          "texto": "strequal()",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1095,8 +1095,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "strequal()",
-          "correta": false
+          "texto": "strcmp()",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -1112,8 +1112,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "%c",
-          "correta": true
+          "texto": "%ch",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1127,8 +1127,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "%ch",
-          "correta": false
+          "texto": "%c",
+          "correta": true
         }
       ],
       "dica": "C de char.",
@@ -1166,8 +1166,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "++",
-          "correta": true
+          "texto": "inc",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1181,8 +1181,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "inc",
-          "correta": false
+          "texto": "++",
+          "correta": true
         }
       ],
       "dica": "Dois sinais de mais.",
@@ -1193,13 +1193,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "switch",
-          "correta": true
+          "texto": "case",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "case",
-          "correta": false
+          "texto": "switch",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -1220,8 +1220,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "strcat()",
-          "correta": true
+          "texto": "stradd()",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1230,8 +1230,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "stradd()",
-          "correta": false
+          "texto": "strcat()",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -1274,8 +1274,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "#include <math.h>",
-          "correta": true
+          "texto": "#include <arithmetic.h>",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1289,8 +1289,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "#include <arithmetic.h>",
-          "correta": false
+          "texto": "#include <math.h>",
+          "correta": true
         }
       ],
       "dica": "Matematica em ingles.",
@@ -1301,8 +1301,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "!",
-          "correta": true
+          "texto": "NOT",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1311,8 +1311,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "NOT",
-          "correta": false
+          "texto": "!",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -1324,30 +1324,30 @@
       "dificuldade": 2
     },
     {
-      "enunciado": "====================================",
+      "enunciado": "Qual e o resultado da expressao 5 / 2 em C, considerando que ambos os operandos sao inteiros",
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "=========",
-          "correta": true
-        },
-        {
-          "alternativa": "b)",
-          "texto": "=========",
+          "texto": "2.5",
           "correta": false
         },
         {
+          "alternativa": "b)",
+          "texto": "2",
+          "correta": true
+        },
+        {
           "alternativa": "c)",
-          "texto": "=========",
+          "texto": "3",
           "correta": false
         },
         {
           "alternativa": "d)",
-          "texto": "=========",
+          "texto": "2.0",
           "correta": false
         }
       ],
-      "dica": "===============",
+      "dica": "Desconsidere o resto",
       "dificuldade": 2
     },
     {
@@ -1360,13 +1360,13 @@
         },
         {
           "alternativa": "b)",
-          "texto": "malloc()",
-          "correta": true
+          "texto": "new()",
+          "correta": false
         },
         {
           "alternativa": "c)",
-          "texto": "new()",
-          "correta": false
+          "texto": "malloc()",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -1382,13 +1382,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Acesso a membro de struct via ponteiro",
-          "correta": true
+          "texto": "Operador de atribuicao",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "Operador de atribuicao",
-          "correta": false
+          "texto": "Acesso a membro de struct via ponteiro",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -1409,8 +1409,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "free()",
-          "correta": true
+          "texto": "dealloc()",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1424,8 +1424,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "dealloc()",
-          "correta": false
+          "texto": "free()",
+          "correta": true
         }
       ],
       "dica": "Liberte a memoria.",
@@ -1436,8 +1436,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Pre-incremento vs pos-incremento",
-          "correta": true
+          "texto": "Um incrementa, outro decrementa",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1446,8 +1446,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "Um incrementa, outro decrementa",
-          "correta": false
+          "texto": "Pre-incremento vs pos-incremento",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -1463,13 +1463,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Retorna endereco de memoria",
-          "correta": true
+          "texto": "Operador logico AND",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "Operador logico AND",
-          "correta": false
+          "texto": "Retorna endereco de memoria",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -1544,8 +1544,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Condicional inline (if-else compacto)",
-          "correta": true
+          "texto": "Operador de ponteiro",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1559,8 +1559,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "Operador de ponteiro",
-          "correta": false
+          "texto": "Condicional inline (if-else compacto)",
+          "correta": true
         }
       ],
       "dica": "Tres operandos: condicao ? verdadeiro : falso.",
@@ -1571,13 +1571,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "calloc inicializa memoria com zero",
-          "correta": true
+          "texto": "malloc e mais rapido",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "malloc e mais rapido",
-          "correta": false
+          "texto": "calloc inicializa memoria com zero",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -1598,8 +1598,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Preserva valor entre chamadas",
-          "correta": true
+          "texto": "Aloca na heap",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1608,8 +1608,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "Aloca na heap",
-          "correta": false
+          "texto": "Preserva valor entre chamadas",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -1625,13 +1625,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Memoria alocada nao liberada",
-          "correta": true
+          "texto": "Erro de compilacao",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "Erro de compilacao",
-          "correta": false
+          "texto": "Memoria alocada nao liberada",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -1679,13 +1679,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Ponteiro que aponta para memoria liberada",
-          "correta": true
+          "texto": "Ponteiro nulo",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "Ponteiro nulo",
-          "correta": false
+          "texto": "Ponteiro que aponta para memoria liberada",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -1733,8 +1733,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Passar endereco de variavel via ponteiro",
-          "correta": true
+          "texto": "Passar variavel constante",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1748,8 +1748,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "Passar variavel constante",
-          "correta": false
+          "texto": "Passar endereco de variavel via ponteiro",
+          "correta": true
         }
       ],
       "dica": "Modificacao afeta original.",
@@ -1760,8 +1760,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Desloca bits para direita",
-          "correta": true
+          "texto": "Divide por 2",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1770,8 +1770,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "Divide por 2",
-          "correta": false
+          "texto": "Desloca bits para direita",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -1787,13 +1787,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Cria alias para tipos existentes",
-          "correta": true
+          "texto": "Define novo tipo primitivo",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "Define novo tipo primitivo",
-          "correta": false
+          "texto": "Cria alias para tipos existentes",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -1868,13 +1868,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Preenche bloco de memoria com valor",
-          "correta": true
+          "texto": "Aloca memoria",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "Aloca memoria",
-          "correta": false
+          "texto": "Preenche bloco de memoria com valor",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -1895,8 +1895,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Tipo enumerado com constantes nomeadas",
-          "correta": true
+          "texto": "Tipo de ponteiro",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1905,8 +1905,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "Tipo de ponteiro",
-          "correta": false
+          "texto": "Tipo enumerado com constantes nomeadas",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -1922,8 +1922,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "OR bit a bit",
-          "correta": true
+          "texto": "NOT bit a bit",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -1937,92 +1937,92 @@
         },
         {
           "alternativa": "d)",
-          "texto": "NOT bit a bit",
-          "correta": false
+          "texto": "OR bit a bit",
+          "correta": true
         }
       ],
       "dica": "Operacao logica OU em bits.",
       "dificuldade": 3
     },
     {
-      "enunciado": "====================================",
+      "enunciado": "Qual das opdcoes abaixo e verdadeira sobre ponteiros em C?",
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "=========",
-          "correta": true
-        },
-        {
-          "alternativa": "b)",
-          "texto": "=========",
+          "texto": "Um ponteiro sempre armazena o valor de uma variavel",
           "correta": false
         },
         {
+          "alternativa": "b)",
+          "texto": "Um ponteiro armazena o enderedco de memória de uma variavel",
+          "correta": true
+        },
+        {
           "alternativa": "c)",
-          "texto": "=========",
+          "texto": "Ponteiros nao podem ser usados com arrays",
           "correta": false
         },
         {
           "alternativa": "d)",
-          "texto": "=========",
+          "texto": "Ponteiros nao podem ser inicializados com NULL",
           "correta": false
         }
       ],
-      "dica": "===============",
+      "dica": "O que voce procura quando nao sabe onde ir",
       "dificuldade": 3
     },
     {
-      "enunciado": "====================================",
+      "enunciado": "Em uma string em C, o índice 0 corresponde a qual caractere?",
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "=========",
-          "correta": true
-        },
-        {
-          "alternativa": "b)",
-          "texto": "=========",
+          "texto": "O último caractere da string",
           "correta": false
         },
         {
+          "alternativa": "b)",
+          "texto": "O primeiro caractere da string",
+          "correta": true
+        },
+        {
           "alternativa": "c)",
-          "texto": "=========",
+          "texto": "O caractere nulo \\0",
           "correta": false
         },
         {
           "alternativa": "d)",
-          "texto": "=========",
+          "texto": "Um valor indefinido",
           "correta": false
         }
       ],
-      "dica": "===============",
+      "dica": "Voce usa no final de uma string",
       "dificuldade": 3
     },
     {
-      "enunciado": "====================================",
+      "enunciado": "O que acontece com uma variavel local declarada como static dentro de uma fundcao?",
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "=========",
-          "correta": true
-        },
-        {
-          "alternativa": "b)",
-          "texto": "=========",
+          "texto": "Ela se torna global automaticamente",
           "correta": false
         },
         {
+          "alternativa": "b)",
+          "texto": "Ela mantem seu valor entre diferentes chamadas da fundcao",
+          "correta": true
+        },
+        {
           "alternativa": "c)",
-          "texto": "=========",
+          "texto": "Ela e reinicializada toda vez que a fundcao e chamada",
           "correta": false
         },
         {
           "alternativa": "d)",
-          "texto": "=========",
+          "texto": "Ela nao pode ser usada fora da funcao",
           "correta": false
         }
       ],
-      "dica": "===============",
+      "dica": "Permanece como resultado fixo de uma funcao",
       "dificuldade": 3
     },
     {
@@ -2084,8 +2084,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Ponteiro generico sem tipo especifico",
-          "correta": true
+          "texto": "Ponteiro para funcao",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -2099,8 +2099,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "Ponteiro para funcao",
-          "correta": false
+          "texto": "Ponteiro generico sem tipo especifico",
+          "correta": true
         }
       ],
       "dica": "Pode apontar para qualquer tipo.",
@@ -2111,8 +2111,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Tipo que compartilha memoria entre membros",
-          "correta": true
+          "texto": "Funcao de biblioteca",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -2126,8 +2126,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "Funcao de biblioteca",
-          "correta": false
+          "texto": "Tipo que compartilha memoria entre membros",
+          "correta": true
         }
       ],
       "dica": "Parecido com struct mas economiza memoria.",
@@ -2138,13 +2138,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Impede otimizacoes do compilador",
-          "correta": true
+          "texto": "Torna variavel constante",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "Torna variavel constante",
-          "correta": false
+          "texto": "Impede otimizacoes do compilador",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -2165,8 +2165,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Variavel que armazena endereco de funcao",
-          "correta": true
+          "texto": "Ponteiro dentro de funcao",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -2175,8 +2175,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "Ponteiro dentro de funcao",
-          "correta": false
+          "texto": "Variavel que armazena endereco de funcao",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -2192,8 +2192,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Ordem de bytes na memoria",
-          "correta": true
+          "texto": "Algoritmos de ordenacao",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -2202,8 +2202,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "Algoritmos de ordenacao",
-          "correta": false
+          "texto": "Ordem de bytes na memoria",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -2219,13 +2219,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Estouro da pilha de chamadas",
-          "correta": true
+          "texto": "Erro de sintaxe",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "Erro de sintaxe",
-          "correta": false
+          "texto": "Estouro da pilha de chamadas",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -2300,13 +2300,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Ponteiro que aponta para outro ponteiro",
-          "correta": true
+          "texto": "Ponteiro de tamanho duplo",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "Ponteiro de tamanho duplo",
-          "correta": false
+          "texto": "Ponteiro que aponta para outro ponteiro",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -2327,8 +2327,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Copia bloco de memoria",
-          "correta": true
+          "texto": "Libera memoria",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -2337,8 +2337,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "Libera memoria",
-          "correta": false
+          "texto": "Copia bloco de memoria",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -2354,8 +2354,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Organizacao de dados em enderecos multiplos",
-          "correta": true
+          "texto": "Funcao de biblioteca",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -2369,8 +2369,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "Funcao de biblioteca",
-          "correta": false
+          "texto": "Organizacao de dados em enderecos multiplos",
+          "correta": true
         }
       ],
       "dica": "Otimizacao de acesso a memoria.",
@@ -2381,8 +2381,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "XOR bit a bit",
-          "correta": true
+          "texto": "Exponenciacao",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -2396,8 +2396,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "Exponenciacao",
-          "correta": false
+          "texto": "XOR bit a bit",
+          "correta": true
         }
       ],
       "dica": "Ou exclusivo bit a bit.",
@@ -2408,8 +2408,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Bytes extras para alinhamento",
-          "correta": true
+          "texto": "Funcao de inicializacao",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -2418,8 +2418,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "Funcao de inicializacao",
-          "correta": false
+          "texto": "Bytes extras para alinhamento",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -2435,18 +2435,18 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Instrucoes especificas do compilador",
-          "correta": true
-        },
-        {
-          "alternativa": "b)",
           "texto": "Define constantes",
           "correta": false
         },
         {
-          "alternativa": "c)",
+          "alternativa": "b)",
           "texto": "Inclui bibliotecas",
           "correta": false
+        },
+        {
+          "alternativa": "c)",
+          "texto": "Instrucoes especificas do compilador",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -2570,8 +2570,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Ponto onde efeitos colaterais sao completos",
-          "correta": true
+          "texto": "Marcador de linha",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -2580,8 +2580,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "Marcador de linha",
-          "correta": false
+          "texto": "Ponto onde efeitos colaterais sao completos",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -2597,13 +2597,13 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Comportamento nao especificado pelo padrao",
-          "correta": true
+          "texto": "Erro de compilacao",
+          "correta": false
         },
         {
           "alternativa": "b)",
-          "texto": "Erro de compilacao",
-          "correta": false
+          "texto": "Comportamento nao especificado pelo padrao",
+          "correta": true
         },
         {
           "alternativa": "c)",
@@ -2624,8 +2624,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Ordena array usando quicksort",
-          "correta": true
+          "texto": "Copia array",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -2639,8 +2639,8 @@
         },
         {
           "alternativa": "d)",
-          "texto": "Copia array",
-          "correta": false
+          "texto": "Ordena array usando quicksort",
+          "correta": true
         }
       ],
       "dica": "Quick sort da biblioteca padrao.",
@@ -2651,8 +2651,8 @@
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "Reinterpretar bytes como tipo diferente",
-          "correta": true
+          "texto": "Erro de tipo",
+          "correta": false
         },
         {
           "alternativa": "b)",
@@ -2661,8 +2661,8 @@
         },
         {
           "alternativa": "c)",
-          "texto": "Erro de tipo",
-          "correta": false
+          "texto": "Reinterpretar bytes como tipo diferente",
+          "correta": true
         },
         {
           "alternativa": "d)",
@@ -2674,30 +2674,30 @@
       "dificuldade": 4
     },
     {
-      "enunciado": "====================================",
+      "enunciado": "Se um ponteiro aponta para o terceiro elemento de um array de inteiros e esse valor e multiplicado por 2, qual sera o efeito?",
       "alternativas": [
         {
           "alternativa": "a)",
-          "texto": "=========",
-          "correta": true
-        },
-        {
-          "alternativa": "b)",
-          "texto": "=========",
+          "texto": "Nenhum efeito, pois ponteiros nao podem alterar arrays",
           "correta": false
         },
         {
+          "alternativa": "b)",
+          "texto": "Apenas o valor acessado pelo ponteiro sera alterado",
+          "correta": true
+        },
+        {
           "alternativa": "c)",
-          "texto": "=========",
+          "texto": "Todos os valores do array serao multiplicados por 2",
           "correta": false
         },
         {
           "alternativa": "d)",
-          "texto": "=========",
+          "texto": "O ponteiro passara a apontar para o dobro do enderedco",
           "correta": false
         }
       ],
-      "dica": "===============",
+      "dica": "O conteudo apontado recebe alteracao",
       "dificuldade": 4
     }
   ]

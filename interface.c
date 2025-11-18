@@ -144,6 +144,7 @@ void desenvolvedores(int largura)
     alinharEsquerda("     - Miguel Dourado de Jesus - 18 anos", largura);
     alinharEsquerda("     - Gustavo Augusto Leite - 18 anos", largura);
     alinharEsquerda("     - Lucas de Souza Martins Araujo - 19 anos", largura);
+    alinharEsquerda("     - Joao Pedro Bezerra de Jesus - 19 anos", largura);
 
     centralizarTexto("Um jogo educativo sobre programacao", largura);
     centralizarTexto("criado para testar e expandir conhecimentos", largura);
