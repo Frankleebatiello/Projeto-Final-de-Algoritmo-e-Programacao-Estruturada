@@ -1,40 +1,24 @@
 #ifndef JOGO_H
 #define JOGO_H
 
-#include "pergunta.h"
-
 typedef struct {
-    int dicas;
-    float moedas;
-    int pulos;
-    int trocas;
     int vidas;
-    int acertos;
-    int erros;
-} acoesJogador;
+    int nivel_atual;
+    int total_niveis;
 
-// Inicialização das ações especiais
-acoesJogador inicializarAcoes (int dicas, float moedasQuant, int pulos, int trocas);
+    int acoes_especiais;   // exemplo: dicas, pular pergunta etc.
+} Jogo;
 
+// inicializa o jogo
+Jogo* iniciarJogo(int total_niveis);
 
-// Ações especiais
-int pularPergunta (acoesJogador *acoes, bQ *banco, pgt **perguntaAtual);
-int trocarPergunta (acoesJogador *acoes, bQ *banco, pgt **perguntaAtual);
-int usarDica (acoesJogador *acoes, pgt *perguntaAtual);
+// atualiza o estado após responder uma pergunta
+void atualizarJogo(Jogo *jogo, int acertou);
 
-// Exibição
-void exibirStatus (acoesJogador *acoes, int largura);
-void exibirPergunta(pgt *pergunta, int numeroPergunta, int largura);
+// mostra o estado atual (vidas, nível, ações etc)
+void mostrarEstado(Jogo *jogo);
 
-// Lógica do game
-int validarResposta(pgt *pergunta, acoesJogador *acoes, char resposta);
-void perderVida(acoesJogador *acoes, int largura);
-int verificarVitoria(bQ *banco);
-int verificarDerrota(acoesJogador *acoes);
-void exibirResultadoFinal(acoesJogador *acoes, int venceu, int largura);
-void loja(acoesJogador *acoes, int largura);
-
-// Declaração da função auxiliar
-void jogarPartida(bQ *banco, int largura);
+// libera memória
+void liberarJogo(Jogo *jogo);
 
 #endif
